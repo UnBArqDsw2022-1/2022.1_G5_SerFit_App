@@ -1,3 +1,6 @@
+.expo
+yarn.lock
+
 # Logs
 logs
 *.log
