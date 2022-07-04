@@ -1,14 +1,13 @@
-import React from 'react-native';
+import React from 'react';
 import {
-	render,
-	screen,
-	fireEvent,
+	render
 } from '@testing-library/react-native';
 import TestComponent from '../components/TestComponent';
 
-test('renders correctly', () => {
+test('renders correctly', (done) => {
   const comp = render(<TestComponent />);
-  const textComp = screen.getByText('Testing Component')
+  const textComp = comp.getByText('Testing Component')
   expect(textComp).not.toBeUndefined();
   expect(textComp.children[0].type).toMatch('Text');
+  done();
 });
