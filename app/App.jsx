@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Yo, Ser Fit está rodando!</Text>
+      <Text>Yo, Ser Fit está rodando Broooooooooo!</Text>
       <StatusBar style={styles.statusBar} />
     </View>
   );
