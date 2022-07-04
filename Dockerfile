@@ -14,5 +14,3 @@ RUN npm install --location=global npm && \
 
 CMD ["expo", "start"]
 
-EXPOSE 19002
-
