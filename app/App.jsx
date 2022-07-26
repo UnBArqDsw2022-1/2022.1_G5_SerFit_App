@@ -1,24 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native';
-import LoginInput from './components/inputs/LoginInput';
+import LoginScreen from './views/LoginScreen';
+import { Provider, DefaultTheme } from 'react-native-paper';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  statusBar: 'auto',
-});
-
+const theme = {
+	...DefaultTheme,
+	colors: {
+		...DefaultTheme.colors,
+		primary: '#F125',
+		backGround: '#00FA',
+	},
+};
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Yo, Ser Fit está rodando Broooooooooo!</Text>
-      <StatusBar style={styles.statusBar} />
-      <LoginInput placeholder='Nome de Usuário'/>
-    </View>
-  );
+		<Provider theme={theme}>
+			<LoginScreen />
+		</Provider>
+	);
 }
+
