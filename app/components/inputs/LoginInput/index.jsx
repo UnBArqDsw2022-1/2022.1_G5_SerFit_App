@@ -6,7 +6,8 @@ import GlobalStyle from '../../../utils/globalStyle';
 const LoginInput = (props) => {
 	const style = StyleSheet.create({
 		inputContainer: {
-			width: '95%',
+			width: '100%',
+			minWidth: 200,
 			backgroundColor: GlobalStyle.theme.colors.backGround,
 		},
 		placeholder: {
@@ -15,8 +16,6 @@ const LoginInput = (props) => {
 	});
 
 	const { label, placeholder, isSecret } = props;
-	let [isFocused, setFocused] = useState(false);
-	const setOnFocus = () => { setFocused(true); }
 	return (
 		<>
 			<TextInput
@@ -26,14 +25,8 @@ const LoginInput = (props) => {
 				placeholderTextColor={GlobalStyle.theme.colors.primary}
 				autoComplete='true'
 				outlineColor={GlobalStyle.theme.colors.primary}
-				style={
-					isFocused
-						? { ...style.inputContainer, height:500, zIndex: 1000 }
-						: style.inputContainer
-				}
+				style={style.inputContainer}
 				secureTextEntry={isSecret}
-				onFocus={(_event) => { setOnFocus(); }}
-				onBlur={(_event) => { setFocused(false); }}
 			/>
 		</>
 	);
