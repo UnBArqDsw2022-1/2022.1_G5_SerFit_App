@@ -1,40 +1,41 @@
-import React, { Component  } from "react";
-import { StyleSheet, Text } from "react-native";
+import React, { useState } from 'react';
+import { StyleSheet, Text } from 'react-native';
 import { TextInput } from 'react-native-paper';
-import GlobalStyle from '../../../utils/globalStyle'
+import GlobalStyle from '../../../utils/globalStyle';
 
-class LoginInput extends Component {
-	primaryColor = GlobalStyle.colors.primaryColor;
-	style = StyleSheet.create({
+const LoginInput = (props) => {
+	const style = StyleSheet.create({
 		inputContainer: {
 			width: '95%',
+			backgroundColor: GlobalStyle.theme.colors.backGround,
 		},
 		placeholder: {
-			color: this.primaryColor,
+			color: GlobalStyle.theme.colors.backGround,
 		},
 	});
 
-	constructor(props) {
-		super(props);
-	}
-
-	render() {
-		let { label, placeholder, isSecret } = this.props;
-		return (
-			<>
-				<TextInput
-					label={label}
-					selectionColor={this.primaryColor}
-					placeholder={placeholder}
-					placeholderTextColor={this.primaryColor}
-					autoComplete='true'
-					style={this.style.inputContainer}
-					secureTextEntry={isSecret}
-				/>
-			</>
-		);
-	}
+	const { label, placeholder, isSecret } = props;
+	let [isFocused, setFocused] = useState(false);
+	const setOnFocus = () => { setFocused(true); }
+	return (
+		<>
+			<TextInput
+				label={label}
+				selectionColor={GlobalStyle.theme.colors.primary}
+				placeholder={placeholder}
+				placeholderTextColor={GlobalStyle.theme.colors.primary}
+				autoComplete='true'
+				outlineColor={GlobalStyle.theme.colors.primary}
+				style={
+					isFocused
+						? { ...style.inputContainer, height:500 }
+						: style.inputContainer
+				}
+				secureTextEntry={isSecret}
+				onFocus={(event) => {setOnFocus();}}
+			/>
+		</>
+	);
 }
-
 
 export default LoginInput;
