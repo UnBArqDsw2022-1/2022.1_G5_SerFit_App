@@ -28,11 +28,12 @@ const LoginInput = (props) => {
 				outlineColor={GlobalStyle.theme.colors.primary}
 				style={
 					isFocused
-						? { ...style.inputContainer, height:500 }
+						? { ...style.inputContainer, height:500, zIndex: 1000 }
 						: style.inputContainer
 				}
 				secureTextEntry={isSecret}
-				onFocus={(event) => {setOnFocus();}}
+				onFocus={(_event) => { setOnFocus(); }}
+				onBlur={(_event) => { setFocused(false); }}
 			/>
 		</>
 	);
