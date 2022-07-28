@@ -20,6 +20,7 @@ const LoginInput = (props) => {
 		<>
 			<TextInput
 				label={label}
+				mode='outlined'
 				selectionColor={GlobalStyle.theme.colors.primary}
 				placeholder={placeholder}
 				placeholderTextColor={GlobalStyle.theme.colors.primary}

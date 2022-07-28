@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import {
 	View,
 	StyleSheet,
@@ -7,6 +7,7 @@ import {
 	KeyboardAvoidingView,
 	Platform,
 	Keyboard,
+  useWindowDimensions,
 } from 'react-native';
 import { Text } from 'react-native-paper';
 import PrimaryButton from '../../components/buttons/PrimaryButton';
@@ -14,11 +15,12 @@ import LoginInput from '../../components/inputs/LoginInput';
 import GlobalStyle from '../../utils/globalStyle';
 
 const LoginScreen = (props) => {
+  let { windowHeight, _ } = useWindowDimensions();
 	let styles = StyleSheet.create({
 		container: {
 			flex: 1,
 			alignItems: 'center',
-			justifyContent: 'space-evenly',
+			justifyContent: 'flex-start',
 			width: '100%',
 		},
 		divider: {
@@ -26,7 +28,7 @@ const LoginScreen = (props) => {
 			backgroundColor: GlobalStyle.theme.colors.backGround,
 		},
 		form: {
-			width: '100%',
+			width: '95%',
 			minWidth: 200,
 		},
 		image: {
@@ -38,39 +40,35 @@ const LoginScreen = (props) => {
 	});
 	let [focused, setFocused] = useState(false);
 
-	Keyboard.addListener('keyboardDidShow', () => {
+	Keyboard.addListener('keyboardWillShow', () => {
 		setFocused(true)
 	})
 
-	Keyboard.addListener('keyboardDidHide', () => {
+	Keyboard.addListener('keyboardWillHide', () => {
 		setFocused(false);
 	});
 
 	return (
+				<KeyboardAvoidingView
+					behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          style={styles.container}
+				>
 		<TouchableWithoutFeedback
 			onPress={Keyboard.dismiss}
 			style={styles.form}
 		>
 			<View style={styles.container}>
-				<View
-					style={{
-						...styles.container,
-						justifyContent: 'flex-start',
-						marginTop: 50,
-					}}
-				>
+				<View style={styles.container}>
 					<Text adjustsFontSizeToFit={true} style={{ fontSize: 25 }}>
-						Login do Cliente
+						{props.screenTitle}
 					</Text>
-					{!focused && <Image
-						source={require('./icon.png')}
-						style={styles.image}
-					/>}
+					{!focused && (
+						<Image
+							source={require('./icon.png')}
+							style={styles.image}
+						/>
+					)}
 				</View>
-				<KeyboardAvoidingView
-					behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-					on
-				>
 					<View style={styles.form}>
 						<LoginInput
 							label='E-mail'
@@ -82,13 +80,18 @@ const LoginScreen = (props) => {
 							placeholder='Insira sua senha'
 							isSecret={true}
 						/>
-						<View style={{margin: 35}}>
-							<PrimaryButton text='Login' />
-						</View>
 					</View>
-				</KeyboardAvoidingView>
+				<View style={{ ...styles.form, margin: 50 }}>
+					<PrimaryButton
+						text='Login'
+						clickEvent={() => {
+							console.log('Clicked');
+						}}
+					/>
+				</View>
 			</View>
 		</TouchableWithoutFeedback>
+				</KeyboardAvoidingView>
 	);
 };
 
