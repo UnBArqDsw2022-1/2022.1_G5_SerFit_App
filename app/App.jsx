@@ -5,14 +5,28 @@ import { Provider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import GlobalStyle from './utils/globalStyle';
+import Entry from './views/Entry';
 
 const Stack = createStackNavigator();
 
 export default function App() {
 	return (
 		<Provider theme={GlobalStyle.theme}>
-			<NavigationContainer theme={{...GlobalStyle.theme, colors: {...GlobalStyle.theme.colors, background: 'transparent'} }}>
-				<Stack.Navigator >
+			<NavigationContainer
+				theme={{
+					...GlobalStyle.theme,
+					colors: {
+						...GlobalStyle.theme.colors,
+						background: 'transparent',
+					},
+				}}
+			>
+				<Stack.Navigator>
+					<Stack.Screen
+						name='EntryScreen'
+						component={Entry}
+						options={{ title: 'Bem vindo(a) novamente!' }}
+					/>
 					<Stack.Screen
 						name='Login'
 						component={LoginScreen}

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text } from 'react-native';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import GlobalStyle from '../../../utils/globalStyle';
 

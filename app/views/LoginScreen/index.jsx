@@ -6,8 +6,7 @@ import {
 	TouchableWithoutFeedback,
 	KeyboardAvoidingView,
 	Platform,
-	Keyboard,
-  useWindowDimensions,
+	Keyboard
 } from 'react-native';
 import { Text } from 'react-native-paper';
 import PrimaryButton from '../../components/buttons/PrimaryButton';
@@ -15,7 +14,6 @@ import LoginInput from '../../components/inputs/LoginInput';
 import GlobalStyle from '../../utils/globalStyle';
 
 const LoginScreen = (props) => {
-  let { windowHeight, _ } = useWindowDimensions();
 	let styles = StyleSheet.create({
 		container: {
 			flex: 1,
@@ -41,34 +39,37 @@ const LoginScreen = (props) => {
 	let [focused, setFocused] = useState(false);
 
 	Keyboard.addListener('keyboardWillShow', () => {
-		setFocused(true)
-	})
+		setFocused(true);
+	});
 
 	Keyboard.addListener('keyboardWillHide', () => {
 		setFocused(false);
 	});
 
 	return (
-				<KeyboardAvoidingView
-					behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-          style={styles.container}
-				>
-		<TouchableWithoutFeedback
-			onPress={Keyboard.dismiss}
-			style={styles.form}
+		<KeyboardAvoidingView
+			behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+			style={styles.container}
 		>
-			<View style={styles.container}>
+			<TouchableWithoutFeedback
+				onPress={Keyboard.dismiss}
+				style={styles.form}
+			>
 				<View style={styles.container}>
-					<Text adjustsFontSizeToFit={true} style={{ fontSize: 25 }}>
-						{props.screenTitle}
-					</Text>
-					{!focused && (
-						<Image
-							source={require('./icon.png')}
-							style={styles.image}
-						/>
-					)}
-				</View>
+					<View style={styles.container}>
+						<Text
+							adjustsFontSizeToFit={true}
+							style={{ fontSize: 25 }}
+						>
+							{props.screenTitle}
+						</Text>
+						{!focused && (
+							<Image
+								source={require('./icon.png')}
+								style={styles.image}
+							/>
+						)}
+					</View>
 					<View style={styles.form}>
 						<LoginInput
 							label='E-mail'
@@ -81,17 +82,17 @@ const LoginScreen = (props) => {
 							isSecret={true}
 						/>
 					</View>
-				<View style={{ ...styles.form, margin: 50 }}>
-					<PrimaryButton
-						text='Login'
-						clickEvent={() => {
-							console.log('Clicked');
-						}}
-					/>
+					<View style={{ ...styles.form, margin: 50 }}>
+						<PrimaryButton
+							text='Login'
+							clickEvent={() => {
+								console.log('Clicked');
+							}}
+						/>
+					</View>
 				</View>
-			</View>
-		</TouchableWithoutFeedback>
-				</KeyboardAvoidingView>
+			</TouchableWithoutFeedback>
+		</KeyboardAvoidingView>
 	);
 };
 
