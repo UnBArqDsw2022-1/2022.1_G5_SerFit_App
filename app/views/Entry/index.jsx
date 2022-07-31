@@ -1,6 +1,6 @@
 import { useNavigationContainerRef } from '@react-navigation/native';
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Button, Image, StyleSheet, View } from 'react-native';
 import PrimaryButton from '../../components/buttons/PrimaryButton';
 
 const Entry = (props) => {
@@ -26,12 +26,16 @@ const Entry = (props) => {
 					<PrimaryButton
                         style={{ height: '20%' }}
                         text='Sou Personal'
-                        onPress={() => { loginRef.navigate('Login') }}
+						clickEvent={() => {
+							props.navigation.navigate('Login');
+						}}
 					/>
 					<PrimaryButton
                         style={{ height: '20%', marginBottom: 25 }}
                         text='Sou Cliente'
-                        onPress={loginRef.navigate('Login')}
+                        clickEvent={() => {
+							props.navigation.navigate('Login');
+						}}
                     />
 				</View>
 			</View>

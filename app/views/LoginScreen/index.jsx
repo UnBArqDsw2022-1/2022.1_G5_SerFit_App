@@ -75,11 +75,13 @@ const LoginScreen = (props) => {
 							label='E-mail'
 							placeholder='Insira seu e-mail'
 							isSecret={false}
+							type='email'
 						/>
 						<LoginInput
 							label='Senha'
 							placeholder='Insira sua senha'
 							isSecret={true}
+							type={'password'}
 						/>
 					</View>
 					<View style={{ ...styles.form, margin: 50 }}>

@@ -15,7 +15,7 @@ const LoginInput = (props) => {
 		},
 	});
 
-	const { label, placeholder, isSecret } = props;
+	const { label, placeholder, isSecret, type } = props;
 	return (
 		<>
 			<TextInput
@@ -24,7 +24,7 @@ const LoginInput = (props) => {
 				selectionColor={GlobalStyle.theme.colors.primary}
 				placeholder={placeholder}
 				placeholderTextColor={GlobalStyle.theme.colors.primary}
-				autoComplete='true'
+				autoCompleteType={type}
 				outlineColor={GlobalStyle.theme.colors.primary}
 				style={style.inputContainer}
 				secureTextEntry={isSecret}
