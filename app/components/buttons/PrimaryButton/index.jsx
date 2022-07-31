@@ -1,22 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Button } from 'react-native-paper';
 
-export default class PrimaryButton extends Component {
-	constructor(props) {
-		super(props);
-	}
 
-	render() {
-		return (
-			<Button
-                style={{ ...this.props.style, minHeight: '10%' }}
-                textColor="white"
-				onPress={this.props.clickEvent}
-                mode="contained"
-                dark={true}
-			>
-				{this.props.text}
-			</Button>
-		);
-	}
+const PrimaryButton = (props) => {
+
+	return (
+		<Button
+			style={{ ...props.style, 
+					minHeight: '10%',
+					justifyContent: 'center',
+        			alignItems: 'center',  
+			}}
+			textColor="white"
+			onPress={props.clickEvent}
+			mode="contained"
+			dark={true}
+		>
+			{props.text}
+		</Button>
+	);
 }
+
+export default PrimaryButton;

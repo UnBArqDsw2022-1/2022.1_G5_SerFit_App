@@ -1,6 +1,6 @@
 import { useNavigationContainerRef } from '@react-navigation/native';
 import React from 'react';
-import { Button, Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import PrimaryButton from '../../components/buttons/PrimaryButton';
 
 const Entry = (props) => {
@@ -13,6 +13,7 @@ const Entry = (props) => {
 			flexDirection: 'column',
 			width: '100%',
 		},
+
 	});
 
         const loginRef = useNavigationContainerRef();
@@ -22,7 +23,7 @@ const Entry = (props) => {
 					source={require('./../../assets/icon.png')}
 					style={{ alignSelf: 'center' }}
 				/>
-                <View style={{ ...styles.container, justifyContent: 'space-evenly' }}>
+                <View style={{ ...styles.container, justifyContent: 'space-evenly',}}>
 					<PrimaryButton
                         style={{ height: '20%' }}
                         text='Sou Personal'
