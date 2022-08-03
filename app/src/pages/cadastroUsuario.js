@@ -1,11 +1,17 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native'
+import { withNavigation } from 'react-navigation';
 import logo from '../assets/icon.png'
 
-export default function cadastroUsuario() {
+function cadastroUsuario({navigation}) {
+
+  function handleNavigate() {
+    navigation.navigate('cadastroPersonal');
+  } 
+
   return (
     <><View style={styles.top}>
-      <Text style={styles.texto}>Criar Conta Cliente</Text>
+      <Text style={styles.texto}>Cadastro Cliente</Text>
     </View>
     <KeyboardAvoidingView enabled={Platform.OS == 'ios'} behavior = "padding"style={styles.container}>
 
@@ -31,7 +37,7 @@ export default function cadastroUsuario() {
           <TextInput
             style={styles.input}
             placeholder="Confirme sua senha" />
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity onPress={handleNavigate} style={styles.button}>
             <Text style={styles.buttonText}>Criar Conta</Text>
           </TouchableOpacity>
         </View>
@@ -109,3 +115,5 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 });
+
+export default withNavigation(cadastroUsuario);
