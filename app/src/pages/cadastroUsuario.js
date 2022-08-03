@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native'
 import logo from '../assets/icon.png'
 
 export default function cadastroUsuario() {
@@ -7,8 +7,8 @@ export default function cadastroUsuario() {
     <><View style={styles.top}>
       <Text style={styles.texto}>Criar Conta Cliente</Text>
     </View>
-    <View style={styles.container}>
-      
+    <KeyboardAvoidingView enabled={Platform.OS == 'ios'} behavior = "padding"style={styles.container}>
+
         <Image style ={styles.image} source={logo} />
         <View style={styles.form}>
           <Text style={styles.label}>Nome:</Text>
@@ -31,11 +31,12 @@ export default function cadastroUsuario() {
           <TextInput
             style={styles.input}
             placeholder="Confirme sua senha" />
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Criar Conta</Text>
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Criar Conta</Text>
-        </TouchableOpacity>
-      </View></>
+        
+      </KeyboardAvoidingView></>
   );
 }
 
@@ -49,8 +50,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingTop: 15,
-    borderBottomWidth: 3,
-    color: '#444'
+    borderBottomWidth: 4,
+    color: '#555',
     
   },
 
@@ -77,7 +78,7 @@ const styles = StyleSheet.create({
   form: {
     alignSelf: 'stretch',
     paddingHorizontal: 30,
-    marginTop: 30
+    marginTop: 15,
   },
 
   input: {
@@ -87,8 +88,9 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: '#444',
     height: 44,
-    marginBottom: 20,
+    marginBottom: 8,
     borderRadius: 8,
+    
   
   },
 
@@ -96,6 +98,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#FA6900',
     justifyContent: 'center',
     alignItems: 'center',
+    height: 35,
+    marginTop: 40,
+    borderRadius: 5,
     
   },
 
