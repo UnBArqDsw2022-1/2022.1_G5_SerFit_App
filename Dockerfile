@@ -10,7 +10,6 @@ ENV CHOKIDAR_USEPOLLING true
 
 RUN npm install --location=global npm && \
     npm --location=global install expo-cli && \
+    npm install --location=global @expo/ngrok && \
     yarn install
-
-CMD ["expo", "start"]
 
