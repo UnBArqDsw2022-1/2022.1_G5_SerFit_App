@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react'
+import React, {useEffect} from 'react'
 import { StyleSheet, Text, View } from 'react-native';
+import api from "./services/api";
+
 
 const styles = StyleSheet.create({
   container: {
@@ -13,6 +15,19 @@ const styles = StyleSheet.create({
 });
 
 export default function App() {
+  useEffect(() => {
+    teste();
+  }, []);
+  const teste = async () => {
+    try{
+      const { data } = await api.get("/");
+      console.log(data)
+    }
+    catch(error){
+      console.log(error)
+
+    }
+  }
   return (
     <View style={styles.container}>
       <Text>Yo, Ser Fit está rodando Broooooooooo!</Text>
