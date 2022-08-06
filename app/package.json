@@ -11,6 +11,7 @@
     "test": "jest --forceExit"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "babel-jest": "^28.1.2",
     "chokidar": "^3.5.3",
     "expo": "^46.0.0",
