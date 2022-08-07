@@ -1,31 +1,39 @@
-# RepositorioTemplate
+# SerFit - App
 
-Repositório que deve ser utilizado como template inicial pelos grupos da matéria de Arquitetura e Desenho de Software.
+
+
+
+A documentação se encontra em [WIKI](https://unbarqdsw2022-1.github.io/2022_1_G5_SerFit/#/)
 
 ## Introdução
 
-Este repositório traz um template de repo de documentação a ser seguido pelos grupos de arquitetura e desenho de software.
+Certifique-se de utilizar o node:16
 
-## Tecnologia
+Rode os seguintes comandos, na raiz do projeto:
 
-A geração do site estático é realizada utilizando o [docsify](https://docsify.js.org/).
-
-```shell
-"Docsify generates your documentation website on the fly. Unlike GitBook, it does not generate static html files. Instead, it smartly loads and parses your Markdown files and displays them as a website. To start using it, all you need to do is create an index.html and deploy it on GitHub Pages."
-```
-
-### Instalando o docsify
-
-Execute o comando:
-
-```shell
-npm i docsify-cli -g
+```bash
+sudo npm install -g npm
+sudo npm install -g expo-cli
+npm yarn install
 ```
 
 ### Executando localmente
 
-Para iniciar o site localmente, utilize o comando:
-
-```shell
-docsify serve ./docs
+``` bash
+npm start
 ```
+
+### Alternativamente
+
+Pode-se utilizar o DOCKER:
+
+```bash
+docker-compose up
+```
+
+e após a criação do container:
+
+```bash
+sudo docker exec -it serfit_app bash -c "expo start --tunnel"
+```
+
