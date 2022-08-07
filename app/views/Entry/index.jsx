@@ -2,6 +2,7 @@ import { useNavigationContainerRef } from '@react-navigation/native';
 import React from 'react';
 import { Image, StyleSheet, View, Text } from 'react-native';
 import PrimaryButton from '../../components/buttons/PrimaryButton';
+import gymImg from './../../assets/icon.png';
 
 const Entry = (props) => {
 
@@ -57,7 +58,7 @@ const Entry = (props) => {
 						</Text>
 					</View>
 					<Image
-						source={require('./../../assets/icon.png')}
+						source={gymImg}
 						style={{ alignSelf: 'center' }}
 					/>
 				</View>

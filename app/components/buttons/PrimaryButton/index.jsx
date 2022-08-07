@@ -12,6 +12,7 @@ const PrimaryButton = (props) => {
         			alignItems: 'center',  
 			}}
 			textColor="white"
+			color={props.color}
 			onPress={props.clickEvent}
 			mode="contained"
 			dark={true}

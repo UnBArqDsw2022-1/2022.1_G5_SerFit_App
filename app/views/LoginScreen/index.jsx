@@ -8,10 +8,13 @@ import {
 	Platform,
 	Keyboard
 } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Text } from 'react-native-paper';
 import PrimaryButton from '../../components/buttons/PrimaryButton';
 import LoginInput from '../../components/inputs/LoginInput';
 import GlobalStyle from '../../utils/globalStyle';
+import gymImg from './../../assets/icon.png';
+
 
 const LoginScreen = (props) => {
 	let styles = StyleSheet.create({
@@ -35,6 +38,13 @@ const LoginScreen = (props) => {
 			margin: 0,
 			padding: 0,
 		},
+		forgotText:{
+			fontSize: 14, 
+			marginBottom:20, 
+			marginTop: 20,
+			color: '#FA6900'
+		}
+
 	});
 	let [focused, setFocused] = useState(false);
 
@@ -65,7 +75,7 @@ const LoginScreen = (props) => {
 						</Text>
 						{!focused && (
 							<Image
-								source={require('./icon.png')}
+								source={gymImg}
 								style={styles.image}
 							/>
 						)}
@@ -84,15 +94,33 @@ const LoginScreen = (props) => {
 							type={'password'}
 						/>
 					</View>
-					<View style={{ ...styles.form, margin: 50 }}>
+					<View style={{ ...styles.form, marginTop: 40, }}>
 						<PrimaryButton
-							text='Login'
+							text='Entrar'
 							clickEvent={() => {
 								console.log('Clicked');
 							}}
 						/>
 					</View>
-					
+					<TouchableOpacity
+						onPress={() => console.log('i forgot')}
+					>
+						<Text
+							adjustsFontSizeToFit={true}
+							style={styles.forgotText}
+						>
+							Esqueceu a senha?
+						</Text>
+					</TouchableOpacity>
+					<View style={{ ...styles.form,  width: '70%', height: '15%' }}>
+						<PrimaryButton
+							text='Criar Nova Conta'
+							clickEvent={() => {
+								console.log('Create new account');
+							}}
+							color='#008AC6'
+						/>
+					</View>
 				</View>
 			</TouchableWithoutFeedback>
 		</KeyboardAvoidingView>
