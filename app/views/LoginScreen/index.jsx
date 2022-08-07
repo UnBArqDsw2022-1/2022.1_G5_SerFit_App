@@ -92,6 +92,7 @@ const LoginScreen = (props) => {
 							}}
 						/>
 					</View>
+					
 				</View>
 			</TouchableWithoutFeedback>
 		</KeyboardAvoidingView>

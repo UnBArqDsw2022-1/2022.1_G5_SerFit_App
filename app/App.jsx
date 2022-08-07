@@ -25,7 +25,7 @@ export default function App() {
 					<Stack.Screen
 						name='EntryScreen'
 						component={Entry}
-						options={{ title: 'Bem vindo(a) novamente!' }}
+						options={{ title: '' }}
 					/>
 					<Stack.Screen
 						name='Login'
