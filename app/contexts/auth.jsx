@@ -9,19 +9,21 @@ export default AuthContext;
 
 export const AuthProvider = ({ children }) => {
     const [auth, setAuth] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const loadStorageData = async () => {
-          const storagedAuth = await AsyncStorage.getItem('@SerFit:auth');
-          const storagedToken = await AsyncStorage.getItem('@SerFit:token');
-    
-          if (storagedAuth && storagedToken) {
-            setAuth(JSON.parse(storagedAuth) === true);
-          }
+            const storagedAuth = await AsyncStorage.getItem('@SerFit:auth');
+            const storagedToken = await AsyncStorage.getItem('@SerFit:token');
+
+            if (storagedAuth && storagedToken) {
+                setAuth(JSON.parse(storagedAuth) === true);
+            }
+            setLoading(false);
         }
     
         loadStorageData();
-    },[]);
+    });
 
     const signIn = async (email) => {
         const response = await authServices.signIn(email);
@@ -32,12 +34,15 @@ export const AuthProvider = ({ children }) => {
         await AsyncStorage.setItem('@SerFit:token', response.token);
     }
 
-    const signOut = () => {
+    const signOut = async () => {
+        await AsyncStorage.clear();
         setAuth(false); 
     }
 
+
+
     return(
-        <AuthContext.Provider value={{auth, user: {}, signIn, signOut}}>
+        <AuthContext.Provider value={{auth, user: {}, loading, signIn, signOut}}>
             {children}
         </AuthContext.Provider>
     );
