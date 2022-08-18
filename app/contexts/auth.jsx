@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { createContext } from 'react';
 import * as authServices from "../services/auth";
 import AsyncStorage from  '@react-native-async-storage/async-storage';
+import api from '../services/api';
 
 const AuthContext = createContext({});
 
@@ -18,6 +19,7 @@ export const AuthProvider = ({ children }) => {
 
             if (storagedAuth && storagedToken) {
                 setAuth(JSON.parse(storagedAuth) === true);
+                api.defaults.headers.Authorization = `Baerer ${storagedToken}`;
             }
             setLoading(false);
         }
@@ -27,8 +29,11 @@ export const AuthProvider = ({ children }) => {
 
     const signIn = async (email) => {
         const response = await authServices.signIn(email);
-        console.log(response)
-        setAuth(response.auth)
+        console.log(response);
+        setAuth(response.auth);
+
+
+        api.defaults.headers.Authorization = `Baerer ${response.token}`;
 
         await AsyncStorage.setItem('@SerFit:auth', JSON.stringify(response.auth));
         await AsyncStorage.setItem('@SerFit:token', response.token);
@@ -37,8 +42,8 @@ export const AuthProvider = ({ children }) => {
     const signOut = async () => {
         await AsyncStorage.clear();
         setAuth(false); 
-    }
 
+    }
 
 
     return(
