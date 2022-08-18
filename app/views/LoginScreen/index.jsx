@@ -15,7 +15,6 @@ import LoginInput from '../../components/inputs/LoginInput';
 import GlobalStyle from '../../utils/globalStyle';
 import gymImg from './../../assets/icon.png';
 
-import { signIn } from '../../services/auth';
 import AuthContext from '../../contexts/auth';
 
 
@@ -23,16 +22,10 @@ const LoginScreen = (props) => {
 	const [email, setEmail] = useState('email');
 	const [password, setPassword] = useState('password');
 
-	const { signed } = useContext(AuthContext);
+	const { signIn } = useContext(AuthContext);
 
-	const handleSignIn = async () =>  {
-		// email, password (formulário omitido)
-		const response = await signIn(email);
-		console.log(response);
-		console.log(signed)
-		// console.log(email)
-		// console.log(password)
-
+	const handleSignIn = () =>  {
+		signIn(email);
 	}
 
 	let styles = StyleSheet.create({
