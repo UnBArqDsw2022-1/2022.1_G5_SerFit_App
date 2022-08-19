@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import GlobalStyle from './utils/globalStyle';
 import Entry from './views/Entry';
+import Exercices from './views/Exercices';
 
 const Stack = createStackNavigator();
 
@@ -24,7 +25,7 @@ export default function App() {
 				<Stack.Navigator>
 					<Stack.Screen
 						name='EntryScreen'
-						component={Entry}
+						component={Exercices}
 						options={{ title: '' }}
 					/>
 					<Stack.Screen
