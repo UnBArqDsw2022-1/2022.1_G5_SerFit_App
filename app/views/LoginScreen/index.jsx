@@ -15,7 +15,7 @@ import LoginInput from '../../components/inputs/LoginInput';
 import GlobalStyle from '../../utils/globalStyle';
 import gymImg from './../../assets/icon.png';
 
-import AuthContext from '../../contexts/auth';
+import AuthContext from '../../contexts/AuthContext';
 
 
 const LoginScreen = (props) => {

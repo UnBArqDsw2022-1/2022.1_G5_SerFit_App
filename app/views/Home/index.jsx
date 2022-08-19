@@ -2,7 +2,7 @@ import { useNavigationContainerRef } from '@react-navigation/native';
 import React, { useContext } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-import AuthContext from '../../contexts/auth';
+import AuthContext from '../../contexts/AuthContext';
 
 
 const Home = (props) => {

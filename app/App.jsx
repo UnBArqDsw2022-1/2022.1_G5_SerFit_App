@@ -7,7 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import GlobalStyle from './utils/globalStyle';
 import Entry from './views/Entry';
 import Routes from './routes';
-import { AuthProvider } from './contexts/auth';
+import { AuthProvider } from './contexts/AuthContext';
 
 const Stack = createStackNavigator();
 

@@ -21,17 +21,17 @@ export const AuthProvider = ({ children }) => {
                 setAuth(JSON.parse(storagedAuth) === true);
                 api.defaults.headers.Authorization = `Baerer ${storagedToken}`;
             }
+
             setLoading(false);
         }
     
         loadStorageData();
-    });
+    },[]);
 
     const signIn = async (email) => {
         const response = await authServices.signIn(email);
         console.log(response);
         setAuth(response.auth);
-
 
         api.defaults.headers.Authorization = `Baerer ${response.token}`;
 
@@ -42,12 +42,10 @@ export const AuthProvider = ({ children }) => {
     const signOut = async () => {
         await AsyncStorage.clear();
         setAuth(false); 
-
     }
 
-
     return(
-        <AuthContext.Provider value={{auth, user: {}, loading, signIn, signOut}}>
+        <AuthContext.Provider value={{auth, loading, signIn, signOut}}>
             {children}
         </AuthContext.Provider>
     );
