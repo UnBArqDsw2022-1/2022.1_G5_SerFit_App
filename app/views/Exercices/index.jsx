@@ -1,22 +1,16 @@
 import { useNavigationContainerRef } from '@react-navigation/native';
-import { color } from '@rneui/base';
 import React from 'react';
 import { Image, StyleSheet, View, Text } from 'react-native';
 import gymImg from './../../assets/icon.png';
+
 
 const Entry = (props) => {
 
     let styles = StyleSheet.create({
         container: {
-            flex: 1,
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'column',
-            width: '100%',
-        },
-        headerContainer: {
-            flex: 1,
-            alignItems: 'center',
             width: '100%',
         },
         headerTitle: {
@@ -24,67 +18,48 @@ const Entry = (props) => {
             fontWeight: 'bold',
             color: '#FA6900',
         },
-        titlesContainer: {
-            flex: 1,
-            alignItems: 'center',
-            width: '100%',
-        },
         body: {
-            flex: 2,
+            paddingTop: 50,
             alignItems: 'center',
-            justifyContent: 'flex-start',
-            width: '100%',
+            width: '100%'
         },
         exerciceName: {
             fontSize: 22,
             color: '#FA6900',
         },
         exerciceDiscription: {
-            fontSize: 13
-        },
-        viewExerciceName: {
-            flex: 2,
-            alignItems: 'center',
-            width: '100%',
-        },
-        viewExerciceDiscription: {
-            flex: 3,
-            alignItems: 'center',
-            width: '100%',
+            fontSize: 13,
+            paddingTop: 50,
+            paddingRight: 20,
+            paddingLeft: 20,
         },
         image: {
-            width: '60%',
             resizeMode: 'contain',
-            margin: 0,
-            padding: 0,
-        },
-
+            width: 300,
+            height: 300,
+        }
     });
 
     const loginRef = useNavigationContainerRef();
     return (
         <View style={styles.container}>
-            <View style={styles.headerContainer}>
+            <View>
                 <Text style={styles.headerTitle}>
                     Exercício
                 </Text>
             </View>
             <View style={styles.body}>
                 <Text style={styles.exerciceName}>
-                    Puxada Frontal
+                    Supino Reto
                 </Text>
-                <View style={styles.viewExerciceDiscription}>
-                    <Text style={styles.exerciceDiscription}>
-                        1. Sentar-se no banco do aparelho e apoiar os pés no chão.
-                        2. Segurar a barra com uma pegada pronada com as mãos a uma distância um pouco mais afastadas do que a linha dos ombros.
-                        3. Puxar a barra em direção ao peitoral, até esta chegar bem próxima e contrair ao máximo os músculos da dorsal. O tronco deve permanecer imóvel durante todo o movimento e as curvaturas fisiológicas da coluna devem ser preservadas.
-                        Ao iniciar o exercício, o tronco deve estar ligeiramente inclinado e deve manter-se desta forma até o fim deste.
-                        4. Retornar de forma cadenciada e controlada, garantindo um alongamento completo do músculo, durante a fase excêntrica até retornar a fase inicial.
-                    </Text>
-                    <Image style={styles.image}>
+                <Text style={styles.exerciceDiscription}>
+                    Para fazer o supino reto, é preciso em primeiro lugar se deitar no banco do equipamento, apoiando os pés no chão com os joelhos dobrados formando um ângulo de 90 graus entre as canelas e a coxa.
+                </Text>
 
-                    </Image>
-                </View>
+                <Image
+                    source={{ uri: 'https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg' }}
+                    style={styles.image}
+                />
             </View>
         </View>
     );

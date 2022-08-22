@@ -24,7 +24,7 @@ export default function App() {
 			>
 				<Stack.Navigator>
 					<Stack.Screen
-						name='EntryScreen'
+						name='FirstScreen'
 						component={Exercices}
 						options={{ title: '' }}
 					/>
