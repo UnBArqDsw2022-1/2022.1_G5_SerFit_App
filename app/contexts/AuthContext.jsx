@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { createContext } from 'react';
 import * as authServices from "../services/auth";
 import AsyncStorage from  '@react-native-async-storage/async-storage';
+import { Alert } from "react-native";
 import api from '../services/api';
 
 const AuthContext = createContext({});
@@ -28,15 +29,45 @@ export const AuthProvider = ({ children }) => {
         loadStorageData();
     },[]);
 
-    const signIn = async (email) => {
-        const response = await authServices.signIn(email);
-        console.log(response);
-        setAuth(response.auth);
+    const signIn = async (email, password) => {
+        // const response = await authServices.signIn(email);
+        // console.log(response);
+        // setAuth(response.auth);
 
-        api.defaults.headers.Authorization = `Baerer ${response.token}`;
+        // api.defaults.headers.Authorization = `Baerer ${response.token}`;
 
-        await AsyncStorage.setItem('@SerFit:auth', JSON.stringify(response.auth));
-        await AsyncStorage.setItem('@SerFit:token', response.token);
+        // await AsyncStorage.setItem('@SerFit:auth', JSON.stringify(response.auth));
+        // await AsyncStorage.setItem('@SerFit:token', response.token);
+
+        const user = {
+            email: email.toLowerCase(),
+            password
+        }
+
+        try{
+            const { data } = await api.post("/api/login", user);
+
+            response = data
+
+            console.log(response)
+            
+            setAuth(response.auth);
+
+            api.defaults.headers.Authorization = `Baerer ${response.token}`;
+
+            await AsyncStorage.setItem('@SerFit:auth', JSON.stringify(response.auth));
+            await AsyncStorage.setItem('@SerFit:token', response.token);
+
+        }
+        catch {
+            Alert.alert(
+                "Erro!",
+                "Tente Novamente:",
+                [
+                  { text: "OK", onPress: () => console.log("OK Pressed") }
+                ]
+              );
+        }
     }
 
     const signOut = async () => {

@@ -25,7 +25,7 @@ const LoginScreen = (props) => {
 	const { signIn } = useContext(AuthContext);
 
 	const handleSignIn = () =>  {
-		signIn(email);
+		signIn(email, password);
 	}
 
 	let styles = StyleSheet.create({
