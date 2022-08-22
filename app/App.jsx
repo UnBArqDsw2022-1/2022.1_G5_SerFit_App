@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import GlobalStyle from './utils/globalStyle';
 import Entry from './views/Entry';
+import Profile from './views/Profile';
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,11 @@ export default function App() {
 						name='Login'
 						component={LoginScreen}
 						options={{ title: 'Login' }}
+					/>
+					<Stack.Screen
+						name='Profile'
+						component={Profile}
+						options={{ title: 'Meu Perfil' }}
 					/>
 				</Stack.Navigator>
 			</NavigationContainer>

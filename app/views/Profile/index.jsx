@@ -16,7 +16,7 @@ import GlobalStyle from '../../utils/globalStyle';
 import gymImg from './../../assets/icon.png';
 
 
-const LoginScreen = (props) => {
+const Profile = (props) => {
 	let styles = StyleSheet.create({
 		container: {
 			flex: 1,
@@ -73,19 +73,23 @@ const LoginScreen = (props) => {
 						>
 							{props.screenTitle}
 						</Text>
-						{!focused && (
-							<Image
-								source={gymImg}
-								style={styles.image}
-							/>
-						)}
 					</View>
 					<View style={styles.form}>
 						<LoginInput
-							label='E-mail'
+							label='Nome'
 							placeholder='Insira seu e-mail'
 							isSecret={false}
 							type='email'
+						/>
+                        <LoginInput
+							label='Idade'
+							placeholder='Insira seu e-mail'
+							isSecret={false}
+						/>
+                        <LoginInput
+							label='Sobre você'
+							placeholder='Insira seu e-mail'
+							isSecret={false}
 						/>
 						<LoginInput
 							label='Senha'
@@ -94,29 +98,20 @@ const LoginScreen = (props) => {
 							type={'password'}
 						/>
 					</View>
-					<View style={{ ...styles.form, marginTop: 40, }}>
+					<View style={{ ...styles.form, marginTop: 40, marginBottom: 40}}>
 						<PrimaryButton
-							text='Entrar'
+							text='Salvar'
 							clickEvent={() => {
-								props.navigation.navigate('Profile');
+								console.log('Clicked');
 							}}
 						/>
 					</View>
-					<TouchableOpacity
-						onPress={() => console.log('i forgot')}
-					>
-						<Text
-							adjustsFontSizeToFit={true}
-							style={styles.forgotText}
-						>
-							Esqueceu a senha?
-						</Text>
-					</TouchableOpacity>
+
 					<View style={{ ...styles.form,  width: '70%', height: '15%' }}>
 						<PrimaryButton
-							text='Criar Nova Conta'
+							text='Meus Clientes'
 							clickEvent={() => {
-								console.log('Create new account');
+								console.log('meus clientes');
 							}}
 							color='#008AC6'
 						/>
@@ -127,4 +122,4 @@ const LoginScreen = (props) => {
 	);
 };
 
-export default LoginScreen;
+export default Profile;
