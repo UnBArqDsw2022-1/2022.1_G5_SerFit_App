@@ -14,6 +14,9 @@ import PrimaryButton from '../../components/buttons/PrimaryButton';
 import LoginInput from '../../components/inputs/LoginInput';
 import GlobalStyle from '../../utils/globalStyle';
 import gymImg from './../../assets/icon.png';
+import { TextInput } from 'react-native-paper';
+import EditInput from '../../components/inputs/EditInput';
+
 
 
 const Profile = (props) => {
@@ -48,6 +51,11 @@ const Profile = (props) => {
 	});
 	let [focused, setFocused] = useState(false);
 
+	const [name, setName] = useState('Usuário');
+	const [email, setEmail] = useState('usuario@unb.br');
+	const [description, setDescription] = useState('Gosto de malhar, correr e jogar futebol. Levo uma vida bastante saudável!!');
+
+
 	Keyboard.addListener('keyboardWillShow', () => {
 		setFocused(true);
 	});
@@ -75,28 +83,21 @@ const Profile = (props) => {
 						</Text>
 					</View>
 					<View style={styles.form}>
-						<LoginInput
-							label='Nome'
-							placeholder='Insira seu e-mail'
-							isSecret={false}
-							type='email'
+						
+						<EditInput 
+							label={'Nome'}
+							fieldDefaultValue={name}
 						/>
-                        <LoginInput
-							label='Idade'
-							placeholder='Insira seu e-mail'
-							isSecret={false}
+						<EditInput 
+							label={'E-mail'}
+							fieldDefaultValue={email}
 						/>
-                        <LoginInput
-							label='Sobre você'
-							placeholder='Insira seu e-mail'
-							isSecret={false}
+
+						<EditInput 
+							label={'Sobre você'}
+							fieldDefaultValue={description}
 						/>
-						<LoginInput
-							label='Senha'
-							placeholder='Insira sua senha'
-							isSecret={true}
-							type={'password'}
-						/>
+
 					</View>
 					<View style={{ ...styles.form, marginTop: 40, marginBottom: 40}}>
 						<PrimaryButton
@@ -113,7 +114,6 @@ const Profile = (props) => {
 							clickEvent={() => {
 								console.log('meus clientes');
 							}}
-							color='#008AC6'
 						/>
 					</View>
 				</View>
