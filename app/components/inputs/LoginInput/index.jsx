@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-paper';
-import GlobalStyle from '../../../utils/globalStyle';
+import GlobalStyle from '../../../utils/globalStyle';	
 
 const LoginInput = (props) => {
 	const style = StyleSheet.create({

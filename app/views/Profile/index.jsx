@@ -13,9 +13,9 @@ import { Text } from 'react-native-paper';
 import PrimaryButton from '../../components/buttons/PrimaryButton';
 import LoginInput from '../../components/inputs/LoginInput';
 import GlobalStyle from '../../utils/globalStyle';
-import gymImg from './../../assets/icon.png';
 import { TextInput } from 'react-native-paper';
 import EditInput from '../../components/inputs/EditInput';
+import gymImg from './../../assets/icon.png';
 
 
 
@@ -36,10 +36,11 @@ const Profile = (props) => {
 			minWidth: 200,
 		},
 		image: {
-			width: '60%',
+			width: '50%',
 			resizeMode: 'contain',
 			margin: 0,
 			padding: 0,
+			
 		},
 		forgotText:{
 			fontSize: 14, 
@@ -81,6 +82,10 @@ const Profile = (props) => {
 						>
 							{props.screenTitle}
 						</Text>
+						<Image
+								source={gymImg}
+								style={styles.image}
+							/>
 					</View>
 					<View style={styles.form}>
 						
