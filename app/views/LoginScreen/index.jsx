@@ -98,7 +98,8 @@ const LoginScreen = (props) => {
 						<PrimaryButton
 							text='Entrar'
 							clickEvent={() => {
-								console.log('Clicked');
+								//To-Do Check and save login key
+								props.navigation.navigate('Menu');
 							}}
 						/>
 					</View>

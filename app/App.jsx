@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react'
 import LoginScreen from './views/LoginScreen';
+import MainMenu from './views/MainMenu';
 import { Provider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -22,16 +23,27 @@ export default function App() {
 				}}
 			>
 				<Stack.Navigator>
-					<Stack.Screen
-						name='EntryScreen'
-						component={Entry}
-						options={{ title: '' }}
-					/>
-					<Stack.Screen
-						name='Login'
-						component={LoginScreen}
-						options={{ title: 'Login' }}
-					/>
+					<Stack.Group>			
+					 <Stack.Screen
+							name='EntryScreen'
+							component={Entry}
+							options={{ title: 'Ser Fit App' }}
+						/>
+						<Stack.Screen
+							name='Login'
+							component={LoginScreen}
+							options={{ title: 'Login' }}
+						/>
+					</Stack.Group>
+					<Stack.Group>
+						<Stack.Screen
+							name='Menu'
+							component={MainMenu}
+							options={{
+								title: 'Menu Principal'
+							}}
+						/>
+					</Stack.Group>
 				</Stack.Navigator>
 			</NavigationContainer>
 		</Provider>
