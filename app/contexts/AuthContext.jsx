@@ -30,44 +30,44 @@ export const AuthProvider = ({ children }) => {
     },[]);
 
     const signIn = async (email, password) => {
-        // const response = await authServices.signIn(email);
-        // console.log(response);
-        // setAuth(response.auth);
+        const response = await authServices.signIn(email, password);
+        console.log(response);
+        setAuth(response.auth);
 
-        // api.defaults.headers.Authorization = `Baerer ${response.token}`;
+        api.defaults.headers.Authorization = `Baerer ${response.token}`;
 
-        // await AsyncStorage.setItem('@SerFit:auth', JSON.stringify(response.auth));
-        // await AsyncStorage.setItem('@SerFit:token', response.token);
+        await AsyncStorage.setItem('@SerFit:auth', JSON.stringify(response.auth));
+        await AsyncStorage.setItem('@SerFit:token', response.token);
 
-        const user = {
-            email: email.toLowerCase(),
-            password
-        }
+        // const user = {
+        //     email: email.toLowerCase(),
+        //     password
+        // }
 
-        try{
-            const { data } = await api.post("/api/login", user);
+        // try{
+        //     const { data } = await api.post("/api/login", user);
 
-            response = data
+        //     response = data
 
-            console.log(response)
+        //     console.log(response)
             
-            setAuth(response.auth);
+        //     setAuth(response.auth);
 
-            api.defaults.headers.Authorization = `Baerer ${response.token}`;
+        //     api.defaults.headers.Authorization = `Baerer ${response.token}`;
 
-            await AsyncStorage.setItem('@SerFit:auth', JSON.stringify(response.auth));
-            await AsyncStorage.setItem('@SerFit:token', response.token);
+        //     await AsyncStorage.setItem('@SerFit:auth', JSON.stringify(response.auth));
+        //     await AsyncStorage.setItem('@SerFit:token', response.token);
 
-        }
-        catch {
-            Alert.alert(
-                "Erro!",
-                "Tente Novamente:",
-                [
-                  { text: "OK", onPress: () => console.log("OK Pressed") }
-                ]
-              );
-        }
+        // }
+        // catch {
+        //     Alert.alert(
+        //         "Erro!",
+        //         "Tente Novamente:",
+        //         [
+        //           { text: "OK", onPress: () => console.log("OK Pressed") }
+        //         ]
+        //       );
+        // }
     }
 
     const signOut = async () => {

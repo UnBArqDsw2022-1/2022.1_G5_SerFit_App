@@ -23,6 +23,13 @@ const Home = (props) => {
         <View style={styles.container}>
             <Text>Yo, Ser Fit está rodando Broooooooooo!</Text>
             <Button title="Sair" onPress={handleSignOut} />
+            <Button 
+                title="Lojas" 
+                onPress={() => {
+					props.navigation.navigate('Stores');
+				}}
+            />
+
         </View>
     );
 }
