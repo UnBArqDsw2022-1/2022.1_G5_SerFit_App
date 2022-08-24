@@ -29,7 +29,7 @@ const EditInput = (props) => {
 		}
 	});
 
-	const { label, placeholder, isSecret, type, fieldDefaultValue } = props;
+	const { label, placeholder, isSecret, type, fieldDefaultValue, setText } = props;
 	return (
 		<View style={style.container}> 
 			<Text style={style.label}>{label}:</Text>
@@ -45,6 +45,7 @@ const EditInput = (props) => {
 				style={style.inputContainer}
 				secureTextEntry={isSecret}
                 defaultValue={fieldDefaultValue}
+				onChangeText={text => setText(text)}
 			/>
 		</View>
 	);
