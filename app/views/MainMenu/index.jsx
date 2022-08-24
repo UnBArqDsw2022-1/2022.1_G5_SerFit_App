@@ -52,7 +52,9 @@ const MainMenu = props => {
               text={screenTargets[target].name}
               onPress={event => {
                 props.navigator.navigate(screenTargets[target].pathName);
-              }} />
+              }} 
+              style={styles.button}
+              /> 
           );
         }
         )}
