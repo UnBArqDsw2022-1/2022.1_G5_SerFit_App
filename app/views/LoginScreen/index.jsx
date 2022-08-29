@@ -99,7 +99,7 @@ const LoginScreen = (props) => {
 							text='Entrar'
 							clickEvent={() => {
 								//To-Do Check and save login key
-								props.navigation.navigate('Menu');
+								props.navigation.navigate('MenuPersonal');
 							}}
 						/>
 					</View>
