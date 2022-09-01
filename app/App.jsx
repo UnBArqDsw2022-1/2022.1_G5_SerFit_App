@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react'
 import LoginScreen from './views/LoginScreen';
 import { Provider } from 'react-native-paper';
