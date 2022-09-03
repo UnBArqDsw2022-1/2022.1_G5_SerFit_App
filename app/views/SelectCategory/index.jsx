@@ -1,7 +1,11 @@
 import { StatusBar} from 'expo-status-bar'; 
 import React from 'react';
 import { StyleSheet, View, Text, ScrollView} from 'react-native';
-import Componente from './Componente';
+import ComponentePeitoral from './ComponentePeitoral';
+import ComponenteCostas from './ComponenteCostas';
+import ComponentePernas from './ComponentePernas';
+import ComponenteBracos from './ComponenteBracos';
+import ComponenteAbdomen from './ComponenteAbdomen';
 
 export default function SelectCategory(){
     return (
@@ -11,11 +15,11 @@ export default function SelectCategory(){
             <Text style={styles.title}>Exercícios</Text>    
             
             <ScrollView>
-                <Componente />
-                <Componente />
-                <Componente />
-                <Componente />
-                <Componente />
+                <ComponentePeitoral />
+                <ComponenteCostas />    
+                <ComponentePernas />
+                <ComponenteBracos />
+                <ComponenteAbdomen />
             </ScrollView>
            
         </View>

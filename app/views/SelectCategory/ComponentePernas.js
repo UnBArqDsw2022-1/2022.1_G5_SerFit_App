@@ -1,15 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image} from 'react-native';
 
-export default function Componente(){
+export default function ComponentePernas(){
     return (
-        <View style={styles.card}> 
-                <Image style={styles.Image} resizeMode='center'source={require('./peitoral.jpg')}/>
-                <Text style={styles.cardTitles}>Peitoral</Text>
+            <View style={styles.card}> 
+                <Image style={styles.Image} resizeMode='center'source={require('./../../assets/pernas.jpg')}/>
+                <Text style={styles.cardTitles}>Pernas</Text>
             </View> 
     )
 }
-
 
 const styles = StyleSheet.create({
 
@@ -24,13 +23,14 @@ const styles = StyleSheet.create({
     cardTitles: {
         color: '#FA6900',
         fontSize: 18,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        paddingRight: 110,
 
     },
 
     Image: {
         width: 200,
-        height: 200
+        height: 140
     }
 
 });
