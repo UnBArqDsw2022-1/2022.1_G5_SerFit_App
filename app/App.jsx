@@ -67,9 +67,15 @@ export default function App() {
                 title: "Perfil Personal",
               }}
             />
+					<Stack.Screen
+						name='Profile'
+						component={Profile}
+						options={{ title: 'Meu Perfil' }}
+					/>
           </Stack.Group>
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
   );
 }
+>>>>>>> 9-us7-us8-pagina-atualizacao-cliente
