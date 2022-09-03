@@ -7,6 +7,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import GlobalStyle from "./utils/globalStyle";
 import Entry from "./views/Entry";
+import Profile from "./views/Profile";
 
 const Stack = createStackNavigator();
 
@@ -57,6 +58,13 @@ export default function App() {
               component={MainMenu}
               options={{
                 title: "Menu Principal",
+              }}
+            />
+            <Stack.Screen
+              name="Profile"
+              component={Profile}
+              options={{
+                title: "Perfil Personal",
               }}
             />
           </Stack.Group>
