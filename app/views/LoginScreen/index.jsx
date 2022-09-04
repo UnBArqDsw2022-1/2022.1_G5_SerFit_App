@@ -12,6 +12,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Text } from 'react-native-paper';
 import PrimaryButton from '../../components/buttons/PrimaryButton';
 import LoginInput from '../../components/inputs/LoginInput';
+import MainMenu from '../MainMenu';
 import GlobalStyle from '../../utils/globalStyle';
 import gymImg from './../../assets/icon.png';
 
@@ -98,7 +99,7 @@ const LoginScreen = (props) => {
 						<PrimaryButton
 							text='Entrar'
 							clickEvent={() => {
-								props.navigation.navigate('Profile');
+								props.navigation.navigate('MenuPersonal');
 							}}
 						/>
 					</View>

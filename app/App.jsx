@@ -8,14 +8,18 @@ import { createStackNavigator } from "@react-navigation/stack";
 import GlobalStyle from "./utils/globalStyle";
 import Entry from "./views/Entry";
 import Profile from "./views/Profile";
+import ProfilePersonalPeloCliente from "./views/ProfilePersonalPeloCliente";
 
 const Stack = createStackNavigator();
 
 const screenTargets = {
-  meuPerfil: { name: "Meu Perfil", pathName: "" },
+  meuPerfil: { name: "Meu Perfil", pathName: "Profile" },
   atividades: { name: "Atividades da Academia", pathName: "" },
   exercicios: { name: "Exercícios", pathName: "" },
-  pesquisar: { name: "Pesquisar Profissional", pathName: "" },
+  pesquisar: {
+    name: "Pesquisar Profissional",
+    pathName: "ProfilePersonalPeloCliente",
+  },
   loja: { name: "Loja", pathName: "" },
   chat: { name: "Chat", pathName: "" },
 };
@@ -67,15 +71,14 @@ export default function App() {
                 title: "Perfil Personal",
               }}
             />
-					<Stack.Screen
-						name='Profile'
-						component={Profile}
-						options={{ title: 'Meu Perfil' }}
-					/>
+            <Stack.Screen
+              name="ProfilePersonalPeloCliente"
+              component={ProfilePersonalPeloCliente}
+              options={{ title: "Perfil do Personal" }}
+            />
           </Stack.Group>
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
   );
 }
->>>>>>> 9-us7-us8-pagina-atualizacao-cliente
