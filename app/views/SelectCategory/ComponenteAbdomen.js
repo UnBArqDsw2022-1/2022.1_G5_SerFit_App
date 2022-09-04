@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image} from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
-export default function ComponenteAbdomen(){
+export default function ComponenteAbdomen() {
     return (
-            <View style={styles.card}> 
-                <Image style={styles.Image} resizeMode='center'source={require('./../../assets/abdomen.jpg')}/>
-                <Text style={styles.cardTitles}>Abdômen</Text>
-            </View> 
+        <View style={styles.card}>
+            <Image style={styles.Image} resizeMode='center' source={require('./../../assets/abdomen.jpg')} />
+            <Text style={styles.cardTitles}>Abdômen</Text>
+        </View>
     )
 }
 
@@ -18,13 +18,16 @@ const styles = StyleSheet.create({
         paddingRight: 200,
         paddingLeft: 10,
         borderRadius: 30,
-        marginVertical: 5
+        marginVertical: 5,
+        flexDirection: 'row'
     },
     cardTitles: {
         color: '#FA6900',
         fontSize: 18,
         fontWeight: 'bold',
-        paddingRight: 110,
+        paddingRight: 10,
+        paddingLeft: 40,
+        paddingTop: 50
 
     },
 

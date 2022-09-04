@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image} from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
-export default function ComponentePernas(){
+export default function ComponentePernas() {
     return (
-            <View style={styles.card}> 
-                <Image style={styles.Image} resizeMode='center'source={require('./../../assets/pernas.jpg')}/>
-                <Text style={styles.cardTitles}>Pernas</Text>
-            </View> 
+        <View style={styles.card}>
+            <Image style={styles.Image} resizeMode='cover' source={require('./../../assets/pernas.jpg')} />
+            <Text style={styles.cardTitles}>Pernas</Text>
+        </View>
     )
 }
 
@@ -17,14 +17,19 @@ const styles = StyleSheet.create({
         paddingTop: 0,
         paddingRight: 200,
         paddingLeft: 10,
+        padding: 10,
         borderRadius: 30,
-        marginVertical: 5
+        marginVertical: 5,
+        flexDirection: 'row'
+
     },
     cardTitles: {
         color: '#FA6900',
         fontSize: 18,
         fontWeight: 'bold',
-        paddingRight: 110,
+        paddingRight: 10,
+        paddingLeft: 40,
+        paddingTop: 50
 
     },
 
