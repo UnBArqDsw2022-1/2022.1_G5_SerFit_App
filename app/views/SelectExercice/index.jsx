@@ -1,25 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View, Text, ScrollView } from 'react-native';
-import ComponentePeitoral from './ComponentePeitoral';
-import ComponenteCostas from './ComponenteCostas';
-import ComponentePernas from './ComponentePernas';
-import ComponenteBracos from './ComponenteBracos';
-import ComponenteAbdomen from './ComponenteAbdomen';
+import Componente1 from './Componente1';
+import Componente2 from './Componente2';
+import Componente3 from './Componente3';
+import Componente4 from './Componente4';
+import Componente5 from './Componente5';
 
 export default function SelectCategory() {
     return (
         <View style={styles.container}>
             <StatusBar style="auto" />
 
-            <Text style={styles.title}>Exercícios</Text>
+            <Text style={styles.title}>Costas</Text>
 
             <ScrollView>
-                <ComponentePeitoral />
-                <ComponenteCostas />
-                <ComponentePernas />
-                <ComponenteBracos />
-                <ComponenteAbdomen />
+                <Componente1 />
+                <Componente2 />
+                <Componente3 />
+                <Componente4 />
+                <Componente5 />
             </ScrollView>
 
         </View>

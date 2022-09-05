@@ -8,6 +8,7 @@ import GlobalStyle from './utils/globalStyle';
 import Entry from './views/Entry';
 import Exercices from './views/Exercices';
 import SelectCategory from './views/SelectCategory';
+import SelectExercice from './views/SelectExercice';
 
 const Stack = createStackNavigator();
 
@@ -26,7 +27,7 @@ export default function App() {
 				<Stack.Navigator>
 					<Stack.Screen
 						name='FirstScreen'
-						component={SelectCategory}
+						component={SelectExercice}
 						options={{ title: '' }}
 					/>
 					<Stack.Screen
@@ -35,9 +36,9 @@ export default function App() {
 						options={{ title: 'Login' }}
 					/>
 					<Stack.Screen
-						name='Exercices'
-						component={Exercices}
-						options={{ title: 'Exercices' }}
+						name='SelectExercice'
+						component={SelectExercice}
+						options={{ title: 'SelectExercice' }}
 					/>
 				</Stack.Navigator>
 			</NavigationContainer>
@@ -45,4 +46,3 @@ export default function App() {
 	);
 }
 
-  
