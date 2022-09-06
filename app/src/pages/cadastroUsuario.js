@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity, KeyboardAvo
 import { withNavigation } from 'react-navigation';
 import logo from '../assets/icon.png'
 
-function cadastroUsuario({navigation}) {
+export default function CadastroUsuario({navigation}) {
 
   function handleNavigate() {
     navigation.navigate('cadastroPersonal');
@@ -116,4 +116,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withNavigation(cadastroUsuario);

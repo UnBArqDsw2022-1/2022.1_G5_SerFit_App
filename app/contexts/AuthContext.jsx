@@ -43,7 +43,6 @@ export const AuthProvider = ({ children }) => {
             email: email.toLowerCase(),
             password
         }
-
         try{
             const { data } = await api.post("/api/login", user);
 
