@@ -128,7 +128,7 @@ const LoginScreen = (props) => {
 						<PrimaryButton
 							text='Criar Nova Conta'
 							clickEvent={() => {
-								console.log('Create new account');
+								props.navigation.navigate('EntryScreen');
 							}}
 							color='#008AC6'
 						/>

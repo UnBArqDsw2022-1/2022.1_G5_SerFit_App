@@ -68,14 +68,14 @@ const Entry = (props) => {
                         style={{ height: '20%' }}
                         text='Sou Personal'
 						clickEvent={() => {
-							props.navigation.navigate('Login');
+							props.navigation.navigate('CadastroPersonal');
 						}}
 					/>
 					<PrimaryButton
                         style={{ height: '20%'}}
                         text='Sou Cliente'
                         clickEvent={() => {
-							props.navigation.navigate('Login');
+							props.navigation.navigate('CadastroCliente');
 						}}
                     />
 				</View>
