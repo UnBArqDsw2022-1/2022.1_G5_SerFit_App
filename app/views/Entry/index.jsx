@@ -75,7 +75,7 @@ const Entry = (props) => {
                         style={{ height: '20%'}}
                         text='Sou Cliente'
                         clickEvent={() => {
-							props.navigation.navigate('CadastroUsuario');
+							props.navigation.navigate('CadastroCliente');
 						}}
                     />
 				</View>

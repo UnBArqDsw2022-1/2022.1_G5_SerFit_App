@@ -36,9 +36,18 @@ const AuthRoutes = () => (
 
 		/>
 		<AuthStack.Screen
-			name='CadastroUsuario'
+			name='CadastroCliente'
 			component={CadastroUsuario}
-			options={{ title: '' }}
+			options={{ 
+				title: 'Cadastro Cliente', 
+				headerTitleAlign: 'center',
+				headerTitleStyle: {
+					color: '#FA6900',
+					fontWeight: 'bold',
+					fontSize: 25,
+					paddingTop: 20
+				}
+			}}
 		/>
 	</AuthStack.Navigator>
 );

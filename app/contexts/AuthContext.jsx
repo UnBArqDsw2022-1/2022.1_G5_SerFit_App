@@ -69,13 +69,48 @@ export const AuthProvider = ({ children }) => {
         }
     }
 
+    const createAccount = async (name, email, password, accountType, mainInterest) => {
+
+        const user = {
+            name,
+            email: email.toLowerCase(),
+            password,
+            accountType,
+            mainInterest
+        }
+        try{
+            const { data } = await api.post("/api/user/create", user);
+
+            response = data
+
+            console.log(response)
+            
+            setAuth(response.auth);
+
+            api.defaults.headers.Authorization = `Baerer ${response.token}`;
+
+            await AsyncStorage.setItem('@SerFit:auth', JSON.stringify(response.auth));
+            await AsyncStorage.setItem('@SerFit:token', response.token);
+
+        }
+        catch {
+            Alert.alert(
+                "Erro!",
+                "Tente Novamente:",
+                [
+                  { text: "OK", onPress: () => console.log("OK Pressed") }
+                ]
+              );
+        }
+    }
+
     const signOut = async () => {
         await AsyncStorage.clear();
         setAuth(false); 
     }
 
     return(
-        <AuthContext.Provider value={{auth, loading, signIn, signOut}}>
+        <AuthContext.Provider value={{auth, loading, signIn, signOut, createAccount}}>
             {children}
         </AuthContext.Provider>
     );
