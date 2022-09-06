@@ -1,8 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native';
-import Routes from './src/route';
+import { Provider } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import GlobalStyle from './utils/globalStyle';
+import Routes from './routes';
+import { AuthProvider } from './contexts/AuthContext';
 
-export default function App(){
-  return <Routes />
+const Stack = createStackNavigator();
+
+export default function App() {
+
+	return (
+		<Provider theme={GlobalStyle.theme}>
+			<NavigationContainer
+				theme={{
+					...GlobalStyle.theme,
+					colors: {
+						...GlobalStyle.theme.colors,
+						background: 'transparent',
+					},
+				}}
+			>
+				<AuthProvider>
+					<Routes />
+				</AuthProvider>
+			</NavigationContainer>
+		</Provider>
+	);
 }
+

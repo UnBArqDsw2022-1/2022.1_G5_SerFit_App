@@ -2,6 +2,8 @@ version: '3.7'
 services:
   serfit:
     build: .
+    command: tail -f /dev/null
+    container_name: serfit_app
     volumes:
       - ./app:/app
     ports:
