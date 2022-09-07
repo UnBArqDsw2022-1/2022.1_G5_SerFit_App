@@ -1,12 +1,13 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import Home from '../views/Home';
 import Stores from '../views/Stores';
 import BottomTab from '../components/BottomTab';
 
 
 import Profile from '../views/Profile';
 import MyTraining from '../views/MyTraining';
+
+import MainMenu from '../views/MainMenu';
 
 
 
@@ -18,9 +19,18 @@ const AppRoutes = () => {
 	<>
 		<AppStack.Navigator>
 			<AppStack.Screen
-				name='Home'
-				component={Home}
-				options={{ title: '' }}
+				name='Menu'
+				component={MainMenu}
+				options={{ 
+					title: 'Menu Principal',
+					headerTitleAlign: 'center',
+					headerTitleStyle: {
+						color: '#FA6900',
+						fontWeight: 'bold',
+						fontSize: 20,
+						paddingTop: 20,
+					}
+				}}
 			/>
 			<AppStack.Screen
 				name='Stores'

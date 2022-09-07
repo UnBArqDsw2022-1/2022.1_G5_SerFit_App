@@ -1,18 +1,22 @@
 import React from 'react';
 import { useState, useContext } from 'react';
 import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
-import logo from '../assets/icon.png'
-import LoginInput from '../../components/inputs/LoginInput';
-
+import logo from '../../src/assets/icon.png'
 import AuthContext from '../../contexts/AuthContext';
 
  
-export default function CadastroPersonal() {
+export default function PersonalRegistration() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const accountType = "personal";
   const mainInterest = "academia";
+
+  const samePassword = () => {
+    if (password === confirmPassword) return true;
+    return false;
+  };
 
   const { createAccount } = useContext(AuthContext);
 
@@ -53,11 +57,13 @@ export default function CadastroPersonal() {
               <TextInput
                 style={styles.input}
                 placeholder="Confirme sua senha" 
-                secureTextEntry={true}  
+                secureTextEntry={true}
+                onChangeText={text => setConfirmPassword(text)}  
               />
               <TouchableOpacity 
                 style={styles.button}
-                onPress={handleCreateAccount}  
+                onPress={handleCreateAccount}
+                disabled={!samePassword()}  
               >
                 <Text style={styles.buttonText}>Criar Conta</Text>
               </TouchableOpacity>

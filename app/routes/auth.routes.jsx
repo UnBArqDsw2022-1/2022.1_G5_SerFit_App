@@ -3,8 +3,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Entry from '../views/Entry';
 import LoginScreen from '../views/LoginScreen';
-import CadastroPersonal from '../src/pages/cadastroPersonal';
-import CadastroUsuario from '../src/pages/cadastroUsuario';
+import PersonalRegistration from '../views/PersonalRegistration';
+import ClientRegistration from '../views/ClientRegistration';
 
 const AuthStack = createStackNavigator();
 
@@ -13,7 +13,16 @@ const AuthRoutes = () => (
 		<AuthStack.Screen
 			name='Login'
 			component={LoginScreen}
-			options={{ title: 'Login' }}
+			options={{ 
+				title: 'SerFit', 
+				headerTitleAlign: 'center',
+				headerTitleStyle: {
+					color: '#FA6900',
+					fontWeight: 'bold',
+					fontSize: 25,
+					paddingTop: 20
+				}
+			}}
 		/>
 		<AuthStack.Screen
 			name='EntryScreen'
@@ -22,7 +31,7 @@ const AuthRoutes = () => (
 		/>
 		<AuthStack.Screen
 			name='CadastroPersonal'
-			component={CadastroPersonal}
+			component={PersonalRegistration}
 			options={{ 
 				title: 'Cadastro Personal', 
 				headerTitleAlign: 'center',
@@ -37,7 +46,7 @@ const AuthRoutes = () => (
 		/>
 		<AuthStack.Screen
 			name='CadastroCliente'
-			component={CadastroUsuario}
+			component={ClientRegistration}
 			options={{ 
 				title: 'Cadastro Cliente', 
 				headerTitleAlign: 'center',
