@@ -11,7 +11,6 @@ const MainMenu = (props) => {
     exercicios: { name: "Exercícios", pathName: "SelectCategory" },
     pesquisar: { name: "Pesquisar Profissional", pathName: "" },
     loja: { name: "Loja", pathName: "" },
-    chat: { name: "Chat", pathName: "" },
   });
 
   useEffect(() => {
@@ -42,14 +41,14 @@ const MainMenu = (props) => {
     topImage: {
       alignSelf: "center",
       maxWidth: "100%",
-      marginTop: 10
+      marginTop: 50
     },
     buttonGroup: {
       display: "flex",
       padding: 0,
       border: "none",
       flexDirection: "column",
-      marginTop: 0,
+      marginTop: 20,
       marginLeft: 15,
       marginRight: 15,
       height: 100
