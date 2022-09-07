@@ -12,6 +12,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Text } from 'react-native-paper';
 import PrimaryButton from '../../components/buttons/PrimaryButton';
 import LoginInput from '../../components/inputs/LoginInput';
+import loggedApi from '../../services/login';
 import GlobalStyle from '../../utils/globalStyle';
 import gymImg from './../../assets/icon.png';
 
@@ -129,6 +130,7 @@ const LoginScreen = (props) => {
 							text='Criar Nova Conta'
 							clickEvent={() => {
 								props.navigation.navigate('EntryScreen');
+								console.log('Create new account');
 							}}
 							color='#008AC6'
 						/>

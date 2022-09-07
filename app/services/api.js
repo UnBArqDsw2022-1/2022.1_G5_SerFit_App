@@ -1,11 +1,14 @@
 import axios from "axios";
 
 import {API_HOST, API_PORT} from 'react-native-dotenv';
+
 // Utilizar localhost não funciona
 // Substituam localhost pelo seu ip privado
 // Rodem esse comando no terminal para encontrar seu endereço ip: hostname -I | awk '{print $1}'
-const api = axios.create({
-    baseURL: `http://${API_HOST}:${API_PORT}/api/`
-});
 
+const api = axios.create({
+    // baseURL: `http://${API_HOST}:${API_PORT}/api`,
+    baseURL: 'http://192.168.1.7:3003/api',
+    timeout: 1000
+});
 export default api;
