@@ -40,7 +40,6 @@ const Entry = (props) => {
         }
     });
 
-    const loginRef = useNavigationContainerRef();
     return (
         <View style={styles.container}>
             <View>
@@ -50,14 +49,14 @@ const Entry = (props) => {
             </View>
             <View style={styles.body}>
                 <Text style={styles.exerciceName}>
-                    Supino Reto
+                    {props.route.params.screenTitle}
                 </Text>
                 <Text style={styles.exerciceDiscription}>
                     Para fazer o supino reto, é preciso em primeiro lugar se deitar no banco do equipamento, apoiando os pés no chão com os joelhos dobrados formando um ângulo de 90 graus entre as canelas e a coxa.
                 </Text>
 
                 <Image
-                    source={{ uri: 'https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg' }}
+                    source={{ uri: props.route.params.screenImg }}
                     style={styles.image}
                 />
             </View>

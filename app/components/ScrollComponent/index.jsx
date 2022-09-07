@@ -1,15 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-export default function CategoryComponent(props) {
+export default function ScrollComponent(props) {
 
     return (
         <TouchableOpacity 
             style={styles.card}
             onPress={props.clickEvent}
         >
-            <Image style={styles.Image} resizeMode='center' source={{uri: props.categoryImg}} />
-            <Text style={styles.cardTitles}>{props.categoryName}</Text>
+            <Image style={styles.Image} resizeMode='center' source={{uri: props.componentImg}} />
+            <Text style={styles.cardTitles}>{props.componentName}</Text>
         </TouchableOpacity>
     )
 }

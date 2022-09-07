@@ -1,11 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View, Text, ScrollView } from 'react-native';
-import Componente1 from './Componente1';
-import Componente2 from './Componente2';
-import Componente3 from './Componente3';
-import Componente4 from './Componente4';
-import Componente5 from './Componente5';
+
+import ScrollComponent from '../../components/ScrollComponent';
 
 export default function SelectExercise(props) {
     return (
@@ -14,17 +11,64 @@ export default function SelectExercise(props) {
 
             <Text style={styles.title}>{props.route.params.screenTitle}</Text>
 
-            <ScrollView>
-                <Componente1 />
-                <Componente2 />
-                <Componente3 />
-                <Componente4 />
-                <Componente5 />
+            <ScrollView style={styles.scroll}>
+                <ScrollComponent 
+                    componentName='Supino Reto'
+                    componentImg='https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
+                    clickEvent={() => {
+                        props.navigation.navigate('Exercise', {
+                            screenTitle: 'Supino Reto',
+                            screenImg: 'https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
+                        });
+                    }}
+                />
+                <ScrollComponent 
+                    componentName='Supino Reto'
+                    componentImg='https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
+                    clickEvent={() => {
+                        props.navigation.navigate('Exercise', {
+                            screenTitle: 'Supino Reto',
+                            screenImg: 'https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
+                        });
+                    }}
+                />
+                <ScrollComponent 
+                    componentName='Supino Reto'
+                    componentImg='https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
+                    clickEvent={() => {
+                        props.navigation.navigate('Exercise', {
+                            screenTitle: 'Supino Reto',
+                            screenImg: 'https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
+                        });
+                    }}
+                />
+                <ScrollComponent 
+                    componentName='Supino Reto'
+                    componentImg='https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
+                    clickEvent={() => {
+                        props.navigation.navigate('Exercise', {
+                            screenTitle: 'Supino Reto',
+                            screenImg: 'https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
+                        });
+                    }}
+                />
+                <ScrollComponent 
+                    componentName='Supino Reto'
+                    componentImg='https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
+                    clickEvent={() => {
+                        props.navigation.navigate('Exercise', {
+                            screenTitle: 'Supino Reto',
+                            screenImg: 'https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
+                        });
+                    }}
+                />
+                
             </ScrollView>
 
         </View>
     );
 }
+
 
 const styles = StyleSheet.create({
     container: {
@@ -32,7 +76,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flexDirection: 'column',
         width: '100%',
-        paddingBottom: 50
+        paddingBottom: 50,
+    },
+    scroll:{
+        width: '95%',
 
     },
     title: {
