@@ -27,18 +27,18 @@ export default function App() {
 				<Stack.Navigator>
 					<Stack.Screen
 						name='FirstScreen'
+						component={SelectCategory}
+						options={{ title: '' }}
+					/>
+					<Stack.Screen
+						name='SelectExercise'
 						component={SelectExercice}
 						options={{ title: '' }}
 					/>
 					<Stack.Screen
-						name='Login'
-						component={LoginScreen}
-						options={{ title: 'Login' }}
-					/>
-					<Stack.Screen
-						name='SelectExercice'
-						component={SelectExercice}
-						options={{ title: 'SelectExercice' }}
+						name='Exercise'
+						component={Exercices}
+						options={{ title: '' }}
 					/>
 				</Stack.Navigator>
 			</NavigationContainer>

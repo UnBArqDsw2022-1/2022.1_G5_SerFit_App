@@ -7,12 +7,12 @@ import Componente3 from './Componente3';
 import Componente4 from './Componente4';
 import Componente5 from './Componente5';
 
-export default function SelectCategory() {
+export default function SelectExercise(props) {
     return (
         <View style={styles.container}>
             <StatusBar style="auto" />
 
-            <Text style={styles.title}>Costas</Text>
+            <Text style={styles.title}>{props.route.params.screenTitle}</Text>
 
             <ScrollView>
                 <Componente1 />
