@@ -34,7 +34,7 @@ const MainMenu = (props) => {
     container: {
       flex: 1,
       alignItems: "center",
-      justifyContent: "center",
+      justifyContent: "flex-start",
       alignItems: "stretch",
       flexDirection: "column",
       width: "100%",
@@ -42,27 +42,29 @@ const MainMenu = (props) => {
     topImage: {
       alignSelf: "center",
       maxWidth: "100%",
+      marginTop: 10
     },
     buttonGroup: {
-      display: "flex",
-      padding: 0,
-      border: "none",
-      flexDirection: "column",
+      // display: "flex",
+      // padding: 0,
+      // border: "none",
+      // flexDirection: "column",
       marginTop: 0,
       marginLeft: 15,
       marginRight: 15,
+      height: 100
     },
     button: {
       marginBottom: 15,
-      height: 45,
-      flexBasis: 100,
+      height: 25,
+      flexBasis: 70,
     },
   });
 
   return (
     <View style={styles.container}>
       <Image style={styles.topImage} source={menuImage} />
-      <ScrollView style={styles.buttonGroup}>
+      <View style={styles.buttonGroup}>
         {Object.keys(screenTargets).map((target, ind) => {
           return (
             <Fragment key={ind}>
@@ -76,7 +78,7 @@ const MainMenu = (props) => {
             </Fragment>
           );
         })}
-      </ScrollView>
+      </View>
     </View>
   );
 };

@@ -25,7 +25,7 @@
     "expo-status-bar": "~1.4.0",
     "metro-react-native-babel-preset": "^0.71.2",
     "native-base": "^3.4.9",
-    "react-dom": "^18.2.0",
+    "react-dom": "18.0.0",
     "react-native": "0.69.5",
     "react-native-dotenv": "^3.3.1",
     "react-native-gesture-handler": "~2.5.0",
