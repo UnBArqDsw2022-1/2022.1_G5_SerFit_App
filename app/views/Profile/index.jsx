@@ -23,8 +23,8 @@ const Profile = (props) => {
 		container: {
 			flex: 1,
 			alignItems: 'center',
-			justifyContent: 'flex-start',
-			width: '100%',
+			// justifyContent: 'space-between',
+			width: '100%'
 		},
 		divider: {
 			height: '5%',
@@ -33,13 +33,14 @@ const Profile = (props) => {
 		form: {
 			width: '95%',
 			minWidth: 200,
+			marginTop: 20
 		},
 		image: {
 			width: '50%',
 			resizeMode: 'contain',
-			margin: 0,
-			marginBottom: 50,
-			padding: 0,
+			// margin: 0,
+			// marginBottom: 50,
+			// padding: 0,
 		},
 
 	});
@@ -92,7 +93,7 @@ const Profile = (props) => {
 						/>
 
 					</View>
-					<View style={{ ...styles.form, marginTop: 40, marginBottom: 40, width: '70%',}}>
+					<View style={{ ...styles.form, marginTop: 20, marginBottom: 15, width: '70%',}}>
 						<PrimaryButton
 							text='Salvar'
 							clickEvent={() => {

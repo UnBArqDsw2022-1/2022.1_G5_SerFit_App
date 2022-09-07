@@ -1,16 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react'
-import LoginScreen from './views/LoginScreen';
 import { Provider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import GlobalStyle from './utils/globalStyle';
-import Entry from './views/Entry';
-import Profile from './views/Profile';
+import Routes from './routes';
+import { AuthProvider } from './contexts/AuthContext';
 
 const Stack = createStackNavigator();
 
 export default function App() {
+
 	return (
 		<Provider theme={GlobalStyle.theme}>
 			<NavigationContainer
@@ -22,23 +21,9 @@ export default function App() {
 					},
 				}}
 			>
-				<Stack.Navigator>
-					<Stack.Screen
-						name='EntryScreen'
-						component={Entry}
-						options={{ title: '' }}
-					/>
-					<Stack.Screen
-						name='Login'
-						component={LoginScreen}
-						options={{ title: 'Login' }}
-					/>
-					<Stack.Screen
-						name='Profile'
-						component={Profile}
-						options={{ title: 'Meu Perfil' }}
-					/>
-				</Stack.Navigator>
+				<AuthProvider>
+					<Routes />
+				</AuthProvider>
 			</NavigationContainer>
 		</Provider>
 	);

@@ -25,7 +25,7 @@ const EditInput = (props) => {
 		  },
 
 		container: {
-			marginTop: 12,
+			marginTop: 10,
 		}
 	});
 
