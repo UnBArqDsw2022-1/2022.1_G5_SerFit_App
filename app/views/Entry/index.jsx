@@ -57,26 +57,22 @@ const Entry = (props) => {
       </View>
 
       <View style={styles.buttonsContainer}>
-        <PrimaryButton
-          style={{ height: "20%" }}
-          text="Sou Personal"
-          clickEvent={async () => {
-            await AsyncStorage.setItem("selectedAccount", "personal") 
-            props.navigation.navigate("Login")
-            console.log(await AsyncStorage.getItem('selectedAccount'));
-          }}
-        />
-        <PrimaryButton
-          style={{ height: "20%" }}
-          text="Sou Cliente"
-          clickEvent={async () => {
-            await AsyncStorage.setItem("selectedAccount", "cliente");
-            props.navigation.navigate("Login");
-            console.log(await AsyncStorage.getItem('selectedAccount'));
-          }}
-        />
-      </View>
-    </View>
+					<PrimaryButton
+                        style={{ height: '20%' }}
+                        text='Sou Personal'
+						clickEvent={() => {
+							props.navigation.navigate('CadastroPersonal');
+						}}
+					/>
+					<PrimaryButton
+                        style={{ height: '20%'}}
+                        text='Sou Cliente'
+                        clickEvent={() => {
+							props.navigation.navigate('CadastroCliente');
+						}}
+          />
+			</View>
+		</View>
   );
 };
 

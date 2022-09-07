@@ -45,10 +45,10 @@ const MainMenu = (props) => {
       marginTop: 10
     },
     buttonGroup: {
-      // display: "flex",
-      // padding: 0,
-      // border: "none",
-      // flexDirection: "column",
+      display: "flex",
+      padding: 0,
+      border: "none",
+      flexDirection: "column",
       marginTop: 0,
       marginLeft: 15,
       marginRight: 15,
@@ -57,7 +57,7 @@ const MainMenu = (props) => {
     button: {
       marginBottom: 15,
       height: 25,
-      flexBasis: 70,
+      flexBasis: 50,
     },
   });
 

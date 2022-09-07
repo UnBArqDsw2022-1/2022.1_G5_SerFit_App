@@ -15,7 +15,7 @@ const LoginInput = (props) => {
 		},
 	});
 
-	const { label, placeholder, isSecret, type } = props;
+	const { label, placeholder, isSecret, type, setText } = props;
 	return (
 		<>
 			<TextInput
@@ -28,6 +28,7 @@ const LoginInput = (props) => {
 				outlineColor={GlobalStyle.theme.colors.primary}
 				style={style.inputContainer}
 				secureTextEntry={isSecret}
+				onChangeText={text => setText(text)}
 			/>
 		</>
 	);
