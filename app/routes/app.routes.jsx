@@ -40,7 +40,10 @@ const AppRoutes = () => {
 			<AppStack.Screen
 				name='Profile'
 				component={Profile}
-				options={{ title: 'Meu Perfil' }}
+				options={{ 
+					title: 'Meu Perfil',
+					headerTitleAlign: 'center',
+				}}
 			/>
 			<AppStack.Screen
 				name='MyTraining'
