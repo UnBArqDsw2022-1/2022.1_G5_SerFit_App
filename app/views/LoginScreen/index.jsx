@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
 	View,
 	StyleSheet,
@@ -15,8 +15,19 @@ import LoginInput from '../../components/inputs/LoginInput';
 import GlobalStyle from '../../utils/globalStyle';
 import gymImg from './../../assets/icon.png';
 
+import AuthContext from '../../contexts/AuthContext';
+
 
 const LoginScreen = (props) => {
+	const [email, setEmail] = useState('email');
+	const [password, setPassword] = useState('password');
+
+	const { signIn } = useContext(AuthContext);
+
+	const handleSignIn = () =>  {
+		signIn(email, password);
+	}
+
 	let styles = StyleSheet.create({
 		container: {
 			flex: 1,
@@ -86,20 +97,21 @@ const LoginScreen = (props) => {
 							placeholder='Insira seu e-mail'
 							isSecret={false}
 							type='email'
+							setText={setEmail}
 						/>
 						<LoginInput
 							label='Senha'
 							placeholder='Insira sua senha'
 							isSecret={true}
 							type={'password'}
+							setText={setPassword}
+
 						/>
 					</View>
 					<View style={{ ...styles.form, marginTop: 40, }}>
 						<PrimaryButton
 							text='Entrar'
-							clickEvent={() => {
-								console.log('Clicked');
-							}}
+							clickEvent={handleSignIn}
 						/>
 					</View>
 					<TouchableOpacity
@@ -116,7 +128,7 @@ const LoginScreen = (props) => {
 						<PrimaryButton
 							text='Criar Nova Conta'
 							clickEvent={() => {
-								console.log('Create new account');
+								props.navigation.navigate('EntryScreen');
 							}}
 							color='#008AC6'
 						/>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-paper';
-import GlobalStyle from '../../../utils/globalStyle';
+import GlobalStyle from '../../../utils/globalStyle';	
 
 const LoginInput = (props) => {
 	const style = StyleSheet.create({
@@ -15,7 +15,7 @@ const LoginInput = (props) => {
 		},
 	});
 
-	const { label, placeholder, isSecret, type } = props;
+	const { label, placeholder, isSecret, type, setText } = props;
 	return (
 		<>
 			<TextInput
@@ -28,6 +28,7 @@ const LoginInput = (props) => {
 				outlineColor={GlobalStyle.theme.colors.primary}
 				style={style.inputContainer}
 				secureTextEntry={isSecret}
+				onChangeText={text => setText(text)}
 			/>
 		</>
 	);

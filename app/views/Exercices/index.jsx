@@ -4,7 +4,7 @@ import { Image, StyleSheet, View, Text } from 'react-native';
 import gymImg from './../../assets/icon.png';
 
 
-const Entry = (props) => {
+const Exercise = (props) => {
 
     let styles = StyleSheet.create({
         container: {
@@ -64,4 +64,4 @@ const Entry = (props) => {
     );
 }
 
-export default Entry;
+export default Exercise;
