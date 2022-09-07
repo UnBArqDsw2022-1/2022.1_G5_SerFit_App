@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const getApi = async () => {
     try {
-         let apiKey = await AsyncStorage.getItem('apiKey');
+        let apiKey = await AsyncStorage.getItem('@SerFit:token');
         console.log('Testing async storage: ', apiKey);
         api.defaults.headers.common['x-access-token'] = apiKey;
         return apiKey;

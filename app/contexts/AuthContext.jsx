@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
 
             if (storagedAuth && storagedToken) {
                 setAuth(JSON.parse(storagedAuth) === true);
-                api.defaults.headers.Authorization = `Baerer ${storagedToken}`;
+                api.defaults.headers['x-access-token'] = `${storagedToken}`;
             }
 
             setLoading(false);

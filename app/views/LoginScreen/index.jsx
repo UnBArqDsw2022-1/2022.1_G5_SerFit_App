@@ -12,7 +12,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Text } from 'react-native-paper';
 import PrimaryButton from '../../components/buttons/PrimaryButton';
 import LoginInput from '../../components/inputs/LoginInput';
-import loggedApi from '../../services/login';
+import loggedApi from '../../services/loggedApi';
 import GlobalStyle from '../../utils/globalStyle';
 import gymImg from './../../assets/icon.png';
 

@@ -6,7 +6,7 @@ import BottomTab from '../components/BottomTab';
 
 import Profile from '../views/Profile';
 import MyTraining from '../views/MyTraining';
-
+import SearchProfessionals from './views/SearchProfessionals';
 import MainMenu from '../views/MainMenu';
 
 
@@ -49,6 +49,11 @@ const AppRoutes = () => {
 				name='MyTraining'
 				component={MyTraining}
 				options={{ title: 'Meu Treino' }}
+			/>
+			 <AppStack.Screen
+				name='SearchProfessionals'
+				component={SearchProfessionals}
+				options={{title: 'Pesquisar profissionais'}}
 			/>
 		</AppStack.Navigator>
 		<BottomTab />
