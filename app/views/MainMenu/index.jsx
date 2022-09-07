@@ -10,7 +10,7 @@ const MainMenu = (props) => {
     atividades: { name: "Atividades da Academia", pathName: "" },
     exercicios: { name: "Exercícios", pathName: "SelectCategory" },
     pesquisar: { name: "Pesquisar Profissional", pathName: "" },
-    loja: { name: "Loja", pathName: "" },
+    loja: { name: "Lojas", pathName: "SelectStore" },
   });
 
   useEffect(() => {

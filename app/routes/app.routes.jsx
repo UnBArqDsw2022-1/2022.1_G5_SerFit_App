@@ -11,6 +11,8 @@ import MainMenu from '../views/MainMenu';
 import SelectCategory from '../views/SelectCategory';
 import SelectExercise from '../views/SelectExercice';
 import Exercise from '../views/Exercices';
+import SelectStore from '../views/SelectStore';
+import Store from '../views/Store';
 
 
 
@@ -66,6 +68,16 @@ const AppRoutes = () => {
 			<AppStack.Screen
 				name='Exercise'
 				component={Exercise}
+				options={{ title: '' }}
+			/>
+			<AppStack.Screen
+				name='SelectStore'
+				component={SelectStore}
+				options={{ title: '' }}
+			/>
+			<AppStack.Screen
+				name='Store'
+				component={Store}
 				options={{ title: '' }}
 			/>
 		</AppStack.Navigator>
