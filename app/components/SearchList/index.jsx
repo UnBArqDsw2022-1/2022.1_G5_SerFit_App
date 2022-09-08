@@ -1,13 +1,23 @@
 import { ListItem, Avatar } from "@rneui/themed";
 import React from "react";
 import { FlatList } from "react-native";
+import base64 from "react-native-base64";
 
 export default class SearchList extends React.Component {
   constructor(props) {
     super(props);
   }
-
+  
   render() {
+    const getImage64 = (intBuffer) => {
+      let typedArray = new Uint8Array(intBuffer);
+      let charBuffer = ''
+      if(typedArray && typedArray.length  > 0)
+        charBuffer = typedArray
+            .reduce((accum, singleByte) => accum + String.fromCharCode(singleByte));
+
+      return charBuffer ? base64.encode(charBuffer) : '';
+    } 
     return (
       <FlatList
         data={this.props.data}
@@ -19,8 +29,10 @@ export default class SearchList extends React.Component {
             {
               // Inserir id do perfil como props
               // de navegação na Stash
+              item.name === "Sergio Takeshi" ? console.log(
+                getImage64(item.thumbnail?.data)) : true
             }
-            <Avatar source={item.thumbnail.toString("base64")} />
+              <Avatar source={{uri: `data:image/jpeg;base64,${getImage64(item.thumbnail?.data)}`}} />
             <ListItem.Content>
               <ListItem.Title>{item.name}</ListItem.Title>
               <ListItem.Subtitle>{item.mainInterest}</ListItem.Subtitle>

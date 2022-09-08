@@ -32,6 +32,7 @@
     "native-base": "^3.4.9",
     "react-dom": "18.0.0",
     "react-native": "0.69.5",
+    "react-native-base64": "^0.2.1",
     "react-native-dotenv": "^3.3.1",
     "react-native-gesture-handler": "~2.5.0",
     "react-native-paper": "^4.12.3",

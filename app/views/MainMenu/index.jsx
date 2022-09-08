@@ -9,7 +9,7 @@ const MainMenu = (props) => {
     meuPerfil: { name: "Meu Perfil", pathName: "Profile" },
     atividades: { name: "Atividades da Academia", pathName: "" },
     exercicios: { name: "Exercícios", pathName: "" },
-    pesquisar: { name: "Pesquisar Profissional", pathName: "" },
+    pesquisar: { name: "Pesquisar Profissional", pathName: "SearchProfessionals" },
     loja: { name: "Loja", pathName: "" },
     chat: { name: "Chat", pathName: "" },
   });

@@ -48,8 +48,8 @@ export const AuthProvider = ({ children }) => {
     };
     api
       .post("/login", user)
-      .then(async (data) => {
-        response = data;
+      .then(async (apiResp) => {
+        let response = apiResp.data;
 
         console.log(response);
 
@@ -66,7 +66,7 @@ export const AuthProvider = ({ children }) => {
         await AsyncStorage.setItem("@SerFit:id", JSON.stringify(response.id));
       })
       .catch((error) => {
-        console.error('Error handling login', JSON.stringify(error));
+        console.error('Error handling login', error);
         Alert.alert("Erro!", "Tente Novamente:", [
           { text: "OK", onPress: () => console.log("OK Pressed") },
         ]);

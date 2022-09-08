@@ -26,7 +26,6 @@ const SearchProfessionals = (props) => {
     return loggedApi
       .get("/user/find", { params: { accountType: "personal" } })
       .then((resp) => {
-        console.log(resp);
         return resp.data;
       })
       .catch((error) => {
