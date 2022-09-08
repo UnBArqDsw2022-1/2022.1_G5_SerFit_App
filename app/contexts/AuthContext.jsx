@@ -86,28 +86,31 @@ export const AuthProvider = ({ children }) => {
       accountType,
       mainInterest,
     };
-    try {
-      const { data } = await api.post("/api/user/create", user);
+    api
+      .post("/user/create", user)
+      .then(async (apiResp) => {
+        let response = apiResp.data;
+        console.log(response);
 
-      response = data;
+        setAuth(response.auth);
+        setId(response.id);
 
-      console.log(response);
+        api.defaults.headers["x-access-token"] = `${response.token}`;
 
-      setAuth(response.auth);
-      // setId(storagedId);
+        await AsyncStorage.setItem(
+          "@SerFit:auth",
+          JSON.stringify(response.auth)
+        );
+        await AsyncStorage.setItem("@SerFit:token", response.token);
+        await AsyncStorage.setItem("@SerFit:id", JSON.stringify(response.id));
+      })
+      .catch((error) => {
+        console.error('Error handling creation', error);
+        Alert.alert("Erro!", "Tente Novamente:", [
+          { text: "OK", onPress: () => console.log("OK Pressed") },
+        ]);
+      });
 
-      api.defaults.headers['x-access-token'] = `${response.token}`;
-
-      await AsyncStorage.setItem("@SerFit:auth", JSON.stringify(response.auth));
-      await AsyncStorage.setItem("@SerFit:token", response.token);
-      // await AsyncStorage.setItem('@SerFit:id', response.id);
-
-      console.log(response.id);
-    } catch {
-      Alert.alert("Erro!", "Tente Novamente:", [
-        { text: "OK", onPress: () => console.log("OK Pressed") },
-      ]);
-    }
   };
 
   const signOut = async () => {

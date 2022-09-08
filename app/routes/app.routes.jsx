@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import Stores from '../views/Store';
+import Store from '../views/Store';
 import BottomTab from '../components/BottomTab';
 
 
@@ -35,11 +35,6 @@ const AppRoutes = () => {
 						paddingTop: 20,
 					}
 				}}
-			/>
-			<AppStack.Screen
-				name='Stores'
-				component={Stores}
-				options={{ title: 'Lojas' }}
 			/>
 			<AppStack.Screen
 				name='Profile'

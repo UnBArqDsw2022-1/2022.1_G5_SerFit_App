@@ -38,6 +38,7 @@ const SearchProfessionals = (props) => {
       setPersonals(personals);
       setAllPersonals(personals);
     });
+
   }, []);
 
   return (

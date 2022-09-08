@@ -4,13 +4,15 @@ import { StyleSheet, View, Text, ScrollView, TouchableOpacity} from 'react-nativ
 
 import ScrollComponent from '../../components/ScrollComponent';
 import api from '../../services/api';
+import { Alert } from "react-native";
+
 
 export default function SelectStore(props) {
     const [stores, setStores] = useState([]);
 
     const getStores = async () => {
         try{
-            const { data } = await api.get("/api/stores");
+            const { data } = await api.get("/stores");
         
             setStores(data)
 
