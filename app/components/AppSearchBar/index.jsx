@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { View } from "react-native";
-import loggedApi from "../../services/login";
 import { TextInput } from "react-native-paper";
 
 export default class AppSearchBar extends React.Component {

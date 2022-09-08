@@ -2,7 +2,7 @@ import { Keyboard, ScrollView, View } from "react-native";
 import SearchList from "./../../components/SearchList";
 import AppSearchBar from "./../../components/AppSearchBar";
 import React, { useEffect, useState } from "react";
-import loggedApi from "../../services/login";
+import loggedApi from "../../services/loggedApi";
 
 const SearchProfessionals = (props) => {
   let [personals, setPersonals] = useState([]);
