@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import Store from '../views/Store';
+import Item from '../views/Item';
 import BottomTab from '../components/BottomTab';
 
 
@@ -11,7 +11,8 @@ import MainMenu from '../views/MainMenu';
 import SelectCategory from '../views/SelectCategory';
 import SelectExercise from '../views/SelectExercice';
 import Exercise from '../views/Exercices';
-import SelectStore from '../views/SelectStore';
+import SelectItem from '../views/SelectItem';
+// import SelectItem from '../views/SelectItem';
 
 
 
@@ -70,13 +71,13 @@ const AppRoutes = () => {
 				options={{ title: '' }}
 			/>
 			<AppStack.Screen
-				name='SelectStore'
-				component={SelectStore}
+				name='SelectItem'
+				component={SelectItem}
 				options={{ title: '' }}
 			/>
 			<AppStack.Screen
-				name='Store'
-				component={Store}
+				name='Item'
+				component={Item}
 				options={{ title: '' }}
 			/>
 		</AppStack.Navigator>

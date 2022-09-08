@@ -7,14 +7,16 @@ import api from '../../services/api';
 import { Alert } from "react-native";
 
 
-export default function SelectStore(props) {
-    const [stores, setStores] = useState([]);
+export default function SelectItem(props) {
+    const [Items, setItems] = useState([]);
+    const [singleItemName, setSingleItemName] = useState('');
 
-    const getStores = async () => {
+    const getItems = async () => {
         try{
-            const { data } = await api.get("/stores");
+            const { data } = await api.get(`/${props.route.params.type}`);
         
-            setStores(data)
+            setItems(data);
+
 
         }
         catch (error) {
@@ -29,7 +31,13 @@ export default function SelectStore(props) {
     }
 
     useEffect(() => {
-        getStores();
+        getItems();
+
+        if(props.route.params.type == 'stores'){
+            setSingleItemName('Loja');
+        }else{
+            setSingleItemName('Atividade');
+        }
     },[]);
 
 
@@ -37,18 +45,19 @@ export default function SelectStore(props) {
         <View style={styles.container}>
             <StatusBar style="auto" />
 
-            <Text style={styles.title}>Lojas</Text>
+            <Text style={styles.title}>{props.route.params.title}</Text>
 
             <ScrollView style={styles.scroll}>
-                {stores.map((store, pos) => 
+                {Items.map((item, pos) => 
                     <ScrollComponent 
-                        componentName={store.name}
-                        componentImg={store.thumbnailUrl}
+                        componentName={item.name}
+                        componentImg={item.thumbnailUrl}
                         clickEvent={() => {
-                            props.navigation.navigate('Store', {
-                                screenTitle: store.name,
-                                screenImg: store.thumbnailUrl,
-                                storeDescription: store.description
+                            props.navigation.navigate('Item', {
+                                screenType: singleItemName,
+                                screenTitle: item.name,
+                                screenImg: item.thumbnailUrl,
+                                itemDescription: item.description
                             });
                         }}
                         key={pos}
