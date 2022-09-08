@@ -50,7 +50,6 @@ export const AuthProvider = ({ children }) => {
       .post("/login", user)
       .then(async (apiResp) => {
         let response = apiResp.data;
-
         console.log(response);
 
         setAuth(response.auth);
@@ -97,7 +96,7 @@ export const AuthProvider = ({ children }) => {
       setAuth(response.auth);
       // setId(storagedId);
 
-      api.defaults.headers.Authorization = `Baerer ${response.token}`;
+      api.defaults.headers['x-access-token'] = `${response.token}`;
 
       await AsyncStorage.setItem("@SerFit:auth", JSON.stringify(response.auth));
       await AsyncStorage.setItem("@SerFit:token", response.token);

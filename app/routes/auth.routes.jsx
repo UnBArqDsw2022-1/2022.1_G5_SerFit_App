@@ -6,6 +6,7 @@ import LoginScreen from '../views/LoginScreen';
 import PersonalRegistration from '../views/PersonalRegistration';
 import ClientRegistration from '../views/ClientRegistration';
 
+
 const AuthStack = createStackNavigator();
 
 const AuthRoutes = () => (
