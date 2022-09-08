@@ -75,7 +75,7 @@ const Profile = (props) => {
 			setName(user.name);
 			setEmail(user.email);
 			setDescription(user.about);
-			if(age != null){
+			if(user.age != null){
 				setAge(user.age.toString())
 			}
 			setLoading(false);

@@ -52,13 +52,14 @@ const Exercise = (props) => {
                     {props.route.params.screenTitle}
                 </Text>
                 <Text style={styles.exerciceDiscription}>
-                    Para fazer o supino reto, é preciso em primeiro lugar se deitar no banco do equipamento, apoiando os pés no chão com os joelhos dobrados formando um ângulo de 90 graus entre as canelas e a coxa.
+                    {props.route.params.description}
                 </Text>
 
                 <Image
                     source={{ uri: props.route.params.screenImg }}
                     style={styles.image}
                 />
+
             </View>
         </View>
     );

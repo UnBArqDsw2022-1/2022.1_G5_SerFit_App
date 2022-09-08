@@ -1,10 +1,36 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { StyleSheet, View, Text, ScrollView } from 'react-native';
 
 import ScrollComponent from '../../components/ScrollComponent';
+import api from '../../services/api';
 
 export default function SelectExercise(props) {
+    const [exercises, setExercises] = useState([]);
+
+    const getExercises = async () => {
+        try{
+            const { data } = await api.get("/exercises");
+        
+            setExercises(data.filter((category) => category.id == props.route.params.categoryId))
+
+        }
+        catch (error) {
+            Alert.alert(
+                "Erro na Requisição!",
+                "Tente Novamente:",
+                [
+                  { text: "OK", onPress: () => console.log(error) }
+                ]
+              );
+        }
+    }
+
+    useEffect(() => {
+        getExercises();
+    },[]);
+
+ 
     return (
         <View style={styles.container}>
             <StatusBar style="auto" />
@@ -12,56 +38,21 @@ export default function SelectExercise(props) {
             <Text style={styles.title}>{props.route.params.screenTitle}</Text>
 
             <ScrollView style={styles.scroll}>
-                <ScrollComponent 
-                    componentName='Supino Reto'
-                    componentImg='https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
-                    clickEvent={() => {
-                        props.navigation.navigate('Exercise', {
-                            screenTitle: 'Supino Reto',
-                            screenImg: 'https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
-                        });
-                    }}
-                />
-                <ScrollComponent 
-                    componentName='Supino Reto'
-                    componentImg='https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
-                    clickEvent={() => {
-                        props.navigation.navigate('Exercise', {
-                            screenTitle: 'Supino Reto',
-                            screenImg: 'https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
-                        });
-                    }}
-                />
-                <ScrollComponent 
-                    componentName='Supino Reto'
-                    componentImg='https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
-                    clickEvent={() => {
-                        props.navigation.navigate('Exercise', {
-                            screenTitle: 'Supino Reto',
-                            screenImg: 'https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
-                        });
-                    }}
-                />
-                <ScrollComponent 
-                    componentName='Supino Reto'
-                    componentImg='https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
-                    clickEvent={() => {
-                        props.navigation.navigate('Exercise', {
-                            screenTitle: 'Supino Reto',
-                            screenImg: 'https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
-                        });
-                    }}
-                />
-                <ScrollComponent 
-                    componentName='Supino Reto'
-                    componentImg='https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
-                    clickEvent={() => {
-                        props.navigation.navigate('Exercise', {
-                            screenTitle: 'Supino Reto',
-                            screenImg: 'https://blog.gsuplementos.com.br/wp-content/uploads/2018/08/iStock-1157237902-390x260.jpg'
-                        });
-                    }}
-                />
+                {exercises.map((exercise, pos) => 
+                    <ScrollComponent 
+                        componentName={exercise.name}
+                        componentImg={exercise.thumbnailUrl}
+                        clickEvent={() => {
+                            props.navigation.navigate('Exercise', {
+                                screenTitle: exercise.name,
+                                screenImg: exercise.thumbnailUrl,
+                                description: exercise.description,
+                                videoUrl: exercise.videoUrl
+                            });
+                        }}
+                        key={pos}
+                    />
+                )}
                 
             </ScrollView>
 

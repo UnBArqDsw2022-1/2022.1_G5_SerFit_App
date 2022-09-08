@@ -50,7 +50,6 @@ export default function SelectStore(props) {
                                 screenImg: store.thumbnailUrl,
                                 storeDescription: store.description
                             });
-                            console.log('oi')
                         }}
                         key={pos}
                     />
