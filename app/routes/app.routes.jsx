@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import Stores from '../views/Stores';
+import Stores from '../views/Store';
 import BottomTab from '../components/BottomTab';
 
 
@@ -12,7 +12,6 @@ import SelectCategory from '../views/SelectCategory';
 import SelectExercise from '../views/SelectExercice';
 import Exercise from '../views/Exercices';
 import SelectStore from '../views/SelectStore';
-import Store from '../views/Store';
 
 
 
