@@ -67,9 +67,7 @@ const SearchProfessionals = (props) => {
         style={{}}
         inputStyle={{}}
       />
-      <ScrollView onPress={Keyboard.dismiss} onTouchMove={Keyboard.dismiss}>
-        <SearchList data={personals} />
-      </ScrollView>
+      <SearchList data={personals} />
     </View>
   );
 };

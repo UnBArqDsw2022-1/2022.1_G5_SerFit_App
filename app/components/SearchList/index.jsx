@@ -1,6 +1,6 @@
 import { ListItem, Avatar } from "@rneui/themed";
 import React from "react";
-import { FlatList } from "react-native";
+import { FlatList, Keyboard } from "react-native";
 import base64 from "react-native-base64";
 
 export default class SearchList extends React.Component {
@@ -21,6 +21,7 @@ export default class SearchList extends React.Component {
     return (
       <FlatList
         data={this.props.data}
+        onScroll={() => Keyboard.dismiss()}
         renderItem={({ item }) => (
           <ListItem
             key={item.id}
