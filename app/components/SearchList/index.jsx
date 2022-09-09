@@ -28,7 +28,12 @@ export default class SearchList extends React.Component {
         renderItem={({ item }) => (
           <ListItem
             key={item.id}
-            onPress={() => this.props.navigation.navigate("")}
+            onPress={() => {
+              this.props.navigation.navigate("PersonalProfile", 
+                {
+                  personalId: item.id,
+                })
+            }}
           >
             {
               // Inserir id do perfil como props

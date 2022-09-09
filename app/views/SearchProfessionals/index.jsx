@@ -22,7 +22,7 @@ const SearchProfessionals = (props) => {
     "outros",
   ];
 
-  const getPersonals = async () => {
+  const getPersonals = async (props) => {
     return loggedApi
       .get("/user/find", { params: { accountType: "personal" } })
       .then((resp) => {
@@ -68,7 +68,10 @@ const SearchProfessionals = (props) => {
         }}
         inputStyle={{}}
       />
-      <SearchList data={personals} />
+      <SearchList 
+        data={personals} 
+        navigation={props.navigation}
+      />
     </View>
   );
 };
