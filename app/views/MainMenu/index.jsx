@@ -6,11 +6,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const MainMenu = (props) => {
   let [screenTargets, setScreenTargets] = useState({
-    meuPerfil: { name: "Meu Perfil", pathName: "Profile" },
-    atividades: { name: "Atividades da Academia", pathName: "" },
-    exercicios: { name: "Exercícios", pathName: "SelectCategory" },
-    pesquisar: { name: "Pesquisar Profissional", pathName: "" },
-    loja: { name: "Lojas", pathName: "SelectStore" },
+    meuPerfil: { name: "Meu Perfil", pathName: "Profile", props: {} },
+    atividades: { name: "Atividades da Academia", pathName: "SelectItem", props: {type: 'activities', title:'Atividades da Academia'} },
+    pesquisar: { name: "Pesquisar Profissional", pathName: "SearchProfessionals", props: {} },
+    exercicios: { name: "Exercícios", pathName: "SelectCategory", props: {} },
+    loja: { name: "Lojas", pathName: "SelectItem", props: {type: 'stores', title: 'Lojas'} },
   });
 
   useEffect(() => {
@@ -70,7 +70,7 @@ const MainMenu = (props) => {
               <PrimaryButton
                 text={screenTargets[target].name}
                 clickEvent={() => {
-                  props.navigation.navigate(screenTargets[target].pathName);
+                  props.navigation.navigate(screenTargets[target].pathName, screenTargets[target].props);
                 }}
                 style={styles.button}
               />

@@ -3,7 +3,7 @@ import React from 'react';
 import { Image, StyleSheet, View, Text } from 'react-native';
 
 
-const Store = (props) => {
+const Item = (props) => {
 
     let styles = StyleSheet.create({
         container: {
@@ -26,7 +26,7 @@ const Store = (props) => {
             fontSize: 22,
             color: '#FA6900',
         },
-        storeDescription: {
+        itemDescription: {
             fontSize: 13,
             paddingTop: 50,
             paddingRight: 20,
@@ -43,15 +43,15 @@ const Store = (props) => {
         <View style={styles.container}>
             <View>
                 <Text style={styles.headerTitle}>
-                    Loja
+                {props.route.params.screenType}
                 </Text>
             </View>
             <View style={styles.body}>
                 <Text style={styles.exerciceName}>
                     {props.route.params.screenTitle}
                 </Text>
-                <Text style={styles.storeDescription}>
-                    {props.route.params.storeDescription}
+                <Text style={styles.itemDescription}>
+                    {props.route.params.itemDescription}
                 </Text>
 
                 <Image
@@ -63,4 +63,4 @@ const Store = (props) => {
     );
 }
 
-export default Store;
+export default Item;

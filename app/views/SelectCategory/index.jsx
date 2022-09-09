@@ -10,7 +10,7 @@ export default function SelectCategory(props) {
 
     const getExercisesCategories = async () => {
         try{
-            const { data } = await api.get("/api/exercise-categories");
+            const { data } = await api.get("/exercise-categories");
         
             setExercisesCategories(data)
 
@@ -45,6 +45,7 @@ export default function SelectCategory(props) {
                         clickEvent={() => {
                             props.navigation.navigate('SelectExercise', {
                                 screenTitle: category.name,
+                                categoryId: category.id
                             });
                         }}
                         key={pos}

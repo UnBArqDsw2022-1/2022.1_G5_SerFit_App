@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import {
 	View,
 	StyleSheet,
@@ -6,7 +6,9 @@ import {
 	TouchableWithoutFeedback,
 	KeyboardAvoidingView,
 	Platform,
-	Keyboard
+	Keyboard,
+	ActivityIndicator,
+	
 } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Text } from 'react-native-paper';
@@ -15,7 +17,10 @@ import LoginInput from '../../components/inputs/LoginInput';
 import GlobalStyle from '../../utils/globalStyle';
 import EditInput from '../../components/inputs/EditInput';
 import gymImg from './../../assets/icon.png';
-
+import loggedApi from "../../services/loggedApi";
+import AuthContext from '../../contexts/AuthContext';
+import api from '../../services/api';
+import { Alert } from "react-native";
 
 
 const Profile = (props) => {
@@ -45,9 +50,62 @@ const Profile = (props) => {
 
 	});
 
-	const [name, setName] = useState('Usuário');
-	const [email, setEmail] = useState('usuario@unb.br');
-	const [description, setDescription] = useState('Gosto de malhar, correr e jogar futebol. Levo uma vida bastante saudável!!');
+	const [name, setName] = useState('oi');
+	const [email, setEmail] = useState('');
+	const [description, setDescription] = useState('');
+	const [age, setAge] = useState();
+	const [loading, setLoading] = useState(true);
+
+	const { id } = useContext(AuthContext);
+
+
+	const getUserInfo = async () => {
+		return loggedApi
+			.get(`/user/${id}`)
+			.then((resp) => {
+				return resp.data;
+			})
+			.catch((error) => {
+				console.error("Error getting user data: ", error);
+			});
+	  };
+	
+	useEffect(() => {
+		getUserInfo().then((user) => {
+			setName(user.name);
+			setEmail(user.email);
+			setDescription(user.about);
+			if(user.age != null){
+				setAge(user.age.toString())
+			}
+			setLoading(false);
+			
+		});
+
+	}, []);
+
+	const updateInfo = async () => {
+		const user = {
+			name,
+			email,
+			about: description,
+			age: parseInt(age)
+		}
+        try{
+            await api.put(`/user/update/${id}`, user);
+        
+        }
+        catch (error) {
+            Alert.alert(
+                "Erro na Requisição!",
+                "Tente Novamente:",
+                [
+                  { text: "OK", onPress: () => console.log(error) }
+                ]
+              );
+        }
+    }
+	
 
 	Keyboard.addListener('keyboardWillShow', () => {
 		setFocused(true);
@@ -56,6 +114,14 @@ const Profile = (props) => {
 	Keyboard.addListener('keyboardWillHide', () => {
 		setFocused(false);
 	});
+
+	if (loading) {
+        return (
+            <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+                <ActivityIndicator size="large" color="#666" />
+            </View>
+        );
+    }
 
 	return (
 		<KeyboardAvoidingView
@@ -85,6 +151,11 @@ const Profile = (props) => {
 							fieldDefaultValue={email}
 							setText={setEmail}
 						/>
+						<EditInput 
+							label={'Idade'}
+							fieldDefaultValue={age}
+							setText={setAge}
+						/>
 
 						<EditInput 
 							label={'Sobre você'}
@@ -95,21 +166,11 @@ const Profile = (props) => {
 					</View>
 					<View style={{ ...styles.form, marginTop: 20, marginBottom: 15, width: '70%',}}>
 						<PrimaryButton
-							text='Salvar'
-							clickEvent={() => {
-								console.log('Clicked');
-							}}
+							text='Salvar Mudanças'
+							clickEvent={updateInfo}
 						/>
 					</View>
 
-					<View style={{ ...styles.form,  width: '70%', height: '15%' }}>
-						<PrimaryButton
-							text='Meus Clientes'
-							clickEvent={() => {
-								console.log('meus clientes');
-							}}
-						/>
-					</View>
 				</View>
 			</TouchableWithoutFeedback>
 		</KeyboardAvoidingView>

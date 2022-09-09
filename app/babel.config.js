@@ -9,6 +9,16 @@ module.exports = function (api) {
       '@babel/proposal-object-rest-spread',
       '@babel/transform-runtime'
     ],
-    plugins: ['react-native-reanimated/plugin']
+    plugins: [
+      'react-native-reanimated/plugin',
+      ["module:react-native-dotenv", {
+        "moduleName": "@env",
+        "path": ".env",
+        "blacklist": null,
+        "whitelist": null,
+        "safe": false,
+        "allowUndefined": true
+      }],
+    ]
   }
 }

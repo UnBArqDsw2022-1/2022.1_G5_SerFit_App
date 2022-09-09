@@ -1,12 +1,14 @@
 import axios from "axios";
 
+import {API_HOST, API_PORT} from '@env';
+
 // Utilizar localhost não funciona
 // Substituam localhost pelo seu ip privado
 // Rodem esse comando no terminal para encontrar seu endereço ip: hostname -I | awk '{print $1}'
+
 const api = axios.create({
-    // baseURL: `http://localhost:3003/`
-    baseURL: 'http://192.168.0.46:8000/'
-
+    baseURL: `http://${API_HOST}:${API_PORT}/api`,
+    // baseURL: `http:/192.168.0.46:3003/api`,
+    timeout: 1000
 });
-
 export default api;
