@@ -9,6 +9,7 @@ export default class SearchList extends React.Component {
   }
   
   render() {
+    /** Funçaõ para utilização do base64 de buffers muito grandes
     const getImage64 = (intBuffer) => {
       let typedArray = new Uint8Array(intBuffer);
       let charBuffer = ''
@@ -18,6 +19,8 @@ export default class SearchList extends React.Component {
 
       return charBuffer ? base64.encode(charBuffer) : '';
     } 
+    */
+
     return (
       <FlatList
         data={this.props.data}
@@ -30,10 +33,9 @@ export default class SearchList extends React.Component {
             {
               // Inserir id do perfil como props
               // de navegação na Stash
-              item.name === "Sergio Takeshi" ? console.log(
-                getImage64(item.thumbnail?.data)) : true
+              console.log(item.thumbnail)
             }
-              <Avatar source={{uri: `data:image/jpeg;base64,${getImage64(item.thumbnail?.data)}`}} />
+            <Avatar source={{uri: item.thumbnail, width: 50, heigtht: 50}} />
             <ListItem.Content>
               <ListItem.Title>{item.name}</ListItem.Title>
               <ListItem.Subtitle>{item.mainInterest}</ListItem.Subtitle>

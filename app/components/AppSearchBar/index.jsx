@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 import { TextInput } from "react-native-paper";
-import GlobalStyle from '../../utils/globalStyle';
+import GlobalStyle from "../../utils/globalStyle";
 
 export default class AppSearchBar extends React.Component {
   constructor(props) {

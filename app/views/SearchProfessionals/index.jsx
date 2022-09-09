@@ -38,7 +38,6 @@ const SearchProfessionals = (props) => {
       setPersonals(personals);
       setAllPersonals(personals);
     });
-
   }, []);
 
   return (
@@ -50,21 +49,23 @@ const SearchProfessionals = (props) => {
           setSearchQuery(input);
           if (!input) setPersonals(allPersonals);
           else {
-            console.log(searchQuery);
-            console.log(personals);
-            if (interestsTypes.filter((item) => item === searchQuery))
+            if (interestsTypes.filter((item) => item === input).length > 0) {
               setPersonals(
                 allPersonals.filter(
                   (personal) => personal.mainInterest === input
                 )
               );
-            else
+            }
+            else {
+              console.log('Filtrando nomes: ');
               setPersonals(
-                allPersonals.filter((item) => item.name?.includes(input))
+                allPersonals.filter((item) => {
+                  return item.name?.includes(input);
+                })
               );
+            }
           }
         }}
-        style={{}}
         inputStyle={{}}
       />
       <SearchList data={personals} />
