@@ -12,8 +12,7 @@ import SelectCategory from '../views/SelectCategory';
 import SelectExercise from '../views/SelectExercice';
 import Exercise from '../views/Exercices';
 import SelectItem from '../views/SelectItem';
-// import SelectItem from '../views/SelectItem';
-
+import PersonalProfile from '../views/PersonalProfile';
 
 
 
@@ -79,6 +78,20 @@ const AppRoutes = () => {
 				name='Item'
 				component={Item}
 				options={{ title: '' }}
+			/>
+			<AppStack.Screen
+				name='PersonalProfile'
+				component={PersonalProfile}
+				options={{ 
+					title: 'Perfil do Personal',
+					headerTitleAlign: 'center',
+					headerTitleStyle: {
+						color: '#FA6900',
+						fontWeight: 'bold',
+						fontSize: 20,
+						paddingTop: 20,
+					}
+				}}
 			/>
 		</AppStack.Navigator>
 		<BottomTab />
