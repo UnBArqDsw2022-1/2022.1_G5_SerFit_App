@@ -7,8 +7,8 @@ import {API_HOST, API_PORT} from '@env';
 // Rodem esse comando no terminal para encontrar seu endereço ip: hostname -I | awk '{print $1}'
 
 const api = axios.create({
-    baseURL: `http://${API_HOST}:${API_PORT}/api`,
-    // baseURL: `http:/192.168.0.46:3003/api`,
+    // baseURL: `http://${API_HOST}:${API_PORT}/api`,
+    baseURL: `http:/192.168.0.46:3003/api`,
     timeout: 1000
 });
 export default api;
